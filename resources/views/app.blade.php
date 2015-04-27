@@ -1,62 +1,80 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Laravel</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>翰鎂科技股份有限公司</title>
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
+    <link href="{{ '/css/default.css' }}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{{ '/css/fonts.css' }}" rel="stylesheet" type="text/css" media="all" />
 
-	<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
-
-	<!-- Fonts -->
-	<link href='//fonts.googleapis.com/css?family=Roboto:400,300' rel='stylesheet' type='text/css'>
-
-	<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-	<!--[if lt IE 9]>
-		<script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-		<script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
+    <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
+    @yield('css')
 </head>
 <body>
-	<nav class="navbar navbar-default">
-		<div class="container-fluid">
-			<div class="navbar-header">
-				<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-					<span class="sr-only">Toggle Navigation</span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<a class="navbar-brand" href="#">Laravel</a>
-			</div>
+    <div id="header-wrapper">
+        <div id="header" class="container">
+            <div id="logo">
+                <h1></span><a href="#">翰鎂</a></h1>
+            </div>
+            <div id="menu">
+                <ul>
+                    <li class="current_page_item"><a href="#" accesskey="1" title="">首頁</a></li>
+                    <li><a href="#" accesskey="2" title="">關於翰鎂</a></li>
+                    <li><a href="#" accesskey="3" title="">產品資訊</a></li>
+                    <li><a href="#" accesskey="4" title="">聯絡我們</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					<li><a href="{{ url('/') }}">Home</a></li>
-				</ul>
+    <div id="header-featured"> </div>
 
-				<ul class="nav navbar-nav navbar-right">
-					@if (Auth::guest())
-						<li><a href="{{ url('/auth/login') }}">Login</a></li>
-						<li><a href="{{ url('/auth/register') }}">Register</a></li>
-					@else
-						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Auth::user()->name }} <span class="caret"></span></a>
-							<ul class="dropdown-menu" role="menu">
-								<li><a href="{{ url('/auth/logout') }}">Logout</a></li>
-							</ul>
-						</li>
-					@endif
-				</ul>
-			</div>
-		</div>
-	</nav>
+    <div id="wrapper">
+        <div id="featured-wrapper">
+            <div id="featured" class="container">
+                <div class="column1"> <span class="icon icon-cogs"></span>
+                    <div class="title">
+                        <h2>Maecenas lectus sapien</h2>
+                    </div>
+                    <p>In posuere eleifend odio. Quisque semper augue mattis wisi. Pellentesque viverra vulputate enim. Aliquam erat volutpat.</p>
+                </div>
+                <div class="column2"> <span class="icon icon-legal"></span>
+                    <div class="title">
+                        <h2>Praesent scelerisque</h2>
+                    </div>
+                    <p>In posuere eleifend odio. Quisque semper augue mattis wisi. Pellentesque viverra vulputate enim. Aliquam erat volutpat.</p>
+                </div>
+                <div class="column3"> <span class="icon icon-unlock"></span>
+                    <div class="title">
+                        <h2>Fusce ultrices fringilla</h2>
+                    </div>
+                    <p>In posuere eleifend odio. Quisque semper augue mattis wisi. Pellentesque viverra vulputate enim. Aliquam erat volutpat.</p>
+                </div>
+                <div class="column4"> <span class="icon icon-wrench"></span>
+                    <div class="title">
+                        <h2>Etiam posuere augue</h2>
+                    </div>
+                    <p>In posuere eleifend odio. Quisque semper augue mattis wisi. Pellentesque viverra vulputate enim. Aliquam erat volutpat.</p>
+                </div>
+            </div>
+        </div>
+        <div id="extra" class="container">
+            <h2>Maecenas vitae orci vitae tellus feugiat eleifend</h2>
+            <span>Quisque dictum integer nisl risus, sagittis convallis, rutrum id, congue, and nibh</span>
+            <p>This is <strong>Breadth</strong>, a free, fully standards-compliant CSS template designed by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>. The photos in this template are from <a href="http://fotogrph.com/"> Fotogrph</a>. This free template is released under the <a href="http://templated.co/license">Creative Commons Attribution</a> license, so you're pretty much free to do whatever you want with it (even use it commercially) provided you give us credit for it. Have fun :) </p>
 
-	@yield('content')
+            <a href="#" class="button">Etiam posuere</a> </div>
+    </div>
+
+    <div id="copyright" class="container">
+        <p>&copy; Untitled. All rights reserved. | Photos by <a href="http://fotogrph.com/">Fotogrph</a> | Design by <a href="http://templated.co" rel="nofollow">TEMPLATED</a>.</p>
+    </div>
 
 	<!-- Scripts -->
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+    @yield('js')
 </body>
 </html>
