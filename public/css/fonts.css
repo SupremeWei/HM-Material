@@ -250,6 +250,7 @@
 		.icon-cloud:before                { content: "\f0c2"; }
 		.icon-beaker:before               { content: "\f0c3"; }
 		.icon-cut:before                  { content: "\f0c4"; }
+        .icon-copyright:before            { content: "\f1f9"; }
 		.icon-copy:before                 { content: "\f0c5"; }
 		.icon-paper-clip:before           { content: "\f0c6"; }
 		.icon-save:before                 { content: "\f0c7"; }
@@ -376,3 +377,4 @@
 		.icon-yelp:before                 { content: "\f328"; }
 		.icon-cloud-upload:before		  { content: "\f0ee"; }
 		.icon-cloud-download:before		  { content: "\f0ed"; }
+
