@@ -21,7 +21,7 @@
             <div id="wrapper">
                 <div class="row">
                     <div class="col-sm-4">
-                        <img src=" {{ '/images/10Wlight.jpg' }} " class="img-rounded" alt="Cinque Terre" width="304" height="236">
+                        <img src=" {{ '/images/20Wlight.jpg' }} " class="img-rounded" alt="Cinque Terre" width="304" height="236">
                     </div>
                     <div class="col-sm-8">
                         <h2><i class="fa fa-fighter-jet fa-2x"></i> 目標</h2>
@@ -43,7 +43,7 @@
             <div id="wrapper">
                 <div class="row">
                     <div class="col-sm-4">
-                        <img src=" {{ '/images/100Wlight.jpg' }} " class="img-rounded" alt="Cinque Terre" width="304" height="236">
+                        <img src=" {{ '/images/90Wlight.jpg' }} " class="img-rounded" alt="Cinque Terre" width="304" height="236">
                     </div>
                     <div class="col-sm-8">
                         <h2><i class="fa fa-star-half-full fa-2x"></i> 服務項目</h2>
