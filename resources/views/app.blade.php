@@ -17,11 +17,11 @@
     <div id="header-wrapper">
         <div id="header" class="container">
             <div id="logo">
-                <h1></span><a href="#">翰鎂</a></h1>
+                <h1></span><a href="#">翰鎂科技股份有限公司</a></h1>
             </div>
             <div id="menu">
                 <ul>
-                    <li id="home"><a href="/" accesskey="1" title="">首頁</a></li>
+                    <li id="home"><a href="/" accesskey="1" title=""><i class="fa fa-home fa-1x"></i>首頁</a></li>
                     <li id="about"><a href="about" accesskey="2" title="About Hanmei">關於翰鎂</a></li>
                     <li><a href="#" accesskey="3" title="Productions Information">產品資訊</a></li>
                     <li><a href="#" accesskey="4" title="Contact us">聯絡我們</a></li>
