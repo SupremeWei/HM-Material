@@ -6,6 +6,9 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
+    <!-- Scripts -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <link href="{{ 'css/bootstrap/bootstrap.css' }}" rel="stylesheet" type="text/css" media="all" />
     <link href="{{ 'css/default.css' }}" rel="stylesheet" type="text/css" media="all" />
     <link href="{{ 'css/fonts.css' }}" rel="stylesheet" type="text/css" media="all" />
@@ -63,9 +66,6 @@
         <p><i class="fa fa-copyright"></i>S.C.R. Cooperation</p>
     </div>
 
-	<!-- Scripts -->
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
     @yield('js')
 </body>
 </html>
