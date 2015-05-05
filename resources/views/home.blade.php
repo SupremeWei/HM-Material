@@ -4,15 +4,15 @@
     <div id="header-featured"> </div>
 
     <div id="wrapper">
-        <div id="featured-wrapper">
+        <div id="featured-wrapper" class="feature-box">
             <div id="featured" class="container">
-                <div class="column1"><i class="fa fa-search-minus fa-4x"></i>
+                <div class="column1 feature-item"><i class="fa fa-search-minus fa-4x"></i>
                     <div class="title">
                         <h2>系列搜尋</h2>
                     </div>
                     <p>Series</p>
                 </div>
-                <div class="column2"><i class="fa fa-search-plus fa-4x"></i>
+                <div class="column2 feature-item"><i class="fa fa-search-plus fa-4x"></i>
                     <div class="title">
                         <h2>料號搜尋</h2>
                     </div>
@@ -35,7 +35,8 @@
         <div id="extra" class="container">
             <h2>三執業執照通過</h2>
 
-            <a href="#" class="button">產品資訊</a> </div>
+            <a href="#" class="button">產品資訊</a>
+        </div>
     </div>
 @endsection
 
