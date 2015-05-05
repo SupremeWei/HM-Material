@@ -6,10 +6,10 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
-    <link href="{{ '/css/bootstrap/bootstrap.css' }}" rel="stylesheet" type="text/css" media="all" />
-    <link href="{{ '/css/default.css' }}" rel="stylesheet" type="text/css" media="all" />
-    <link href="{{ '/css/fonts.css' }}" rel="stylesheet" type="text/css" media="all" />
-    <link href="{{ '/css/fontawesome/font-awesome.css' }}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{{ 'css/bootstrap/bootstrap.css' }}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{{ 'css/default.css' }}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{{ 'css/fonts.css' }}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{{ 'css/fontawesome/font-awesome.css' }}" rel="stylesheet" type="text/css" media="all" />
     <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
     @yield('css')
 </head>
