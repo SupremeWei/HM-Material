@@ -21,9 +21,9 @@
             </div>
             <div id="menu">
                 <ul>
-                    <li id="home"><a href="/" accesskey="1" title=""><i class="fa fa-home fa-1x"></i>首頁</a></li>
-                    <li id="about"><a href="about" accesskey="2" title="About Hanmei">關於翰鎂</a></li>
-                    <li><a href="#" accesskey="3" title="Productions Information">產品資訊</a></li>
+                    <li id="home"><a href="{{ url('/') }}" accesskey="1" title=""><i class="fa fa-home fa-1x"></i>首頁</a></li>
+                    <li id="about"><a href="{{ url('/about') }}" accesskey="2" title="About Hanmei">關於翰鎂</a></li>
+                    <li id="product"><a href="{{ url('/product') }}" accesskey="3" title="Productions Information">產品資訊</a></li>
                     <li><a href="#" accesskey="4" title="Contact us">聯絡我們</a></li>
                 </ul>
             </div>
