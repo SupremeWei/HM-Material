@@ -18,13 +18,13 @@
                     </div>
                     <p>Part No.</p>
                 </div>
-                <div class="column3"><i class="fa fa-sellsy fa-4x"></i>
+                <div class="column3 feature-item-r"><i class="fa fa-sellsy fa-4x"></i>
                     <div class="title">
                         <h2>規格說明</h2>
                     </div>
                     <p>Description</p>
                 </div>
-                <div class="column4"><i class="fa fa-diamond fa-4x"></i>
+                <div class="column4 feature-item-r"><i class="fa fa-diamond fa-4x"></i>
                     <div class="title">
                         <h2>未知</h2>
                     </div>

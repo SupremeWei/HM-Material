@@ -7,14 +7,22 @@ $(function() {
 		
 		$(".inputbox").remove();
 		var title = $("h2", this).text();
-		var content = 
-		    '<div class="inputbox">' +
-		    '<form action="#" method="post">' +
-            '<label>' + title + '</label>' +
-            '<input type="text" name="title" required="required" />'
-            '<input type="submit" value="Submit">' +
-            '</form>' +
+        var content =
+            '<div class="row inputbox">'+
+            '<div class="col-md-6 col-md-offset-3">'+
+            '<div class="input-group">'+
+            '<input type="text" class="form-control" placeholder="'+ title +'">'+
+            '<span class="input-group-btn">'+
+            '<button class="btn btn-primary" type="button">Search</button>'+
+            '</span>'+
+            '</div>'+
+            '</div>'+
             '</div>';
-        $(content).insertAfter( ".feature-box" );
+
+        $(content).appendTo( ".feature-box" );
+    });
+
+    $(".feature-box").on("click", ".feature-item-r", function(){
+		$(".inputbox").remove();
     });
 });
