@@ -11,7 +11,7 @@
                 <div class="col-md-3">
 
                     <p class="lead">電子材料</p>
-                    <div class="list-group">
+                    <div class="list-group item-list">
                         <a href="#" class="list-group-item active">洗牆燈1</a>
                         <a href="#" class="list-group-item">洗牆燈2</a>
                         <a href="#" class="list-group-item">洗牆燈3</a>
