@@ -55,19 +55,19 @@
                                 <td>RV</td>
                                 <td>Higher Capacitance Range</td>
                                 <td>2000</td>
-                                <td><i class="fa fa-file-pdf-o fa-2x"></i></td>
+                                <td><a href="#"><i class="fa fa-file-pdf-o fa-2x"></i></a></td>
                             </tr>
                             <tr>
                                 <td>RV2</td>
                                 <td>5.3mmL Standard</td>
                                 <td>2000</td>
-                                <td><i class="fa fa-file-pdf-o fa-2x"></td>
+                                <td><a href="#"><i class="fa fa-file-pdf-o fa-2x"></i></a></td>
                             </tr>
                             <tr class="info">
                                 <td>RV3</td>
                                 <td>5.3mm / 7.7mmL High C/V</td>
                                 <td>10000</td>
-                                <td><i class="fa fa-file-pdf-o fa-2x"></td>
+                                <td><a href="#"><i class="fa fa-file-pdf-o fa-2x"></i></a></td>
                             </tr>
                             </tbody>
                         </table>
