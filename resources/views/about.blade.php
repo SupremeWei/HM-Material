@@ -14,14 +14,14 @@
                         <p>專營LED亮化產品規劃製造，承接LED廣告、照明、亮化及LED相關產品製造販售，燈具.照明.工廠自動化看板、電腦字幕機、智慧型叫號機、數字鐘、電子零件周邊產品。</p>
                     </div>
                     <div class="col-sm-4">
-                        <img src="{{ 'images/6W-light1.jpg' }} " class="img-rounded" alt="Cinque Terre" width="304" height="236">
+                        <img src="{{ 'images/6Wlight.jpg' }} " class="img-rounded" alt="Cinque Terre" width="304" height="236">
                     </div>
                 </div>
             </div>
             <div id="wrapper">
                 <div class="row">
                     <div class="col-sm-4">
-                        <img src=" {{ 'images/20Wlight.jpg' }} " class="img-rounded" alt="Cinque Terre" width="304" height="236">
+                        <img src=" {{ 'images/100Wlight.jpg' }} " class="img-rounded" alt="Cinque Terre" width="304" height="236">
                     </div>
                     <div class="col-sm-8">
                         <h2><i class="fa fa-fighter-jet fa-2x"></i> 目標</h2>
