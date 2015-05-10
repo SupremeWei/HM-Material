@@ -25,4 +25,21 @@ $(function() {
     $(".feature-box").on("click", ".feature-item-r", function(){
 		$(".inputbox").remove();
     });
+
+    $("#owl-banner").owlCarousel({
+
+        navigation : true, // Show next and prev buttons
+        autoPlay : 3000,
+        slideSpeed : 200,
+        paginationSpeed : 400,
+        singleItem:true
+
+        // "singleItem:true" is a shortcut for:
+        // items : 1,
+        // itemsDesktop : false,
+        // itemsDesktopSmall : false,
+        // itemsTablet: false,
+        // itemsMobile : false
+
+    });
 });

@@ -710,8 +710,8 @@ ul.contact li a.icon-rss:before
 
 	#header-featured
 	{
-		height: 20em;
-		background-image: url(../images/page-banner.jpg);
+		//height: 20em;
+		//background-image: url(../images/page-banner.jpg);
 		background-position: center;
 		background-size: 100% 100%;
 	}

@@ -1,7 +1,22 @@
 @extends('app')
 
+@section('css')
+    <!-- Important Owl stylesheet -->
+    <link rel="stylesheet" href="owl-carousel/owl.carousel.css">
+    <!-- Default Theme -->
+    <link rel="stylesheet" href="owl-carousel/owl.theme.css">
+
+    <link rel="stylesheet" href="css/home.css">
+@endsection
+
 @section('content')
-    <div id="header-featured"> </div>
+    <div id="header-featured">
+        <div id="owl-banner" class="owl-carousel owl-theme">
+            <div class="item"><img src="images/fullimage1.jpg" alt="The Last of us"></div>
+            <div class="item"><img src="images/fullimage2.jpg" alt="GTA V"></div>
+            <div class="item"><img src="images/fullimage3.jpg" alt="Mirror Edge"></div>
+        </div>
+    </div>
 
     <div id="wrapper">
         <div id="featured-wrapper" class="feature-box">
@@ -41,5 +56,8 @@
 @endsection
 
 @section('js')
+    <!-- Include js plugin -->
+    <script src="owl-carousel/owl.carousel.min.js"></script>
+
     <script src="{{ 'js/home.js' }}"></script>
 @endsection
