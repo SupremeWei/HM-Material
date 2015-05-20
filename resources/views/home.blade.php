@@ -47,11 +47,6 @@
                 </div>
             </div>
         </div>
-        <div id="extra" class="container">
-            <h2>三執業執照通過</h2>
-
-            <a href="#" class="button">產品資訊</a>
-        </div>
     </div>
 @endsection
 

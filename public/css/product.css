@@ -1,6 +1,7 @@
 .container {
-    color: #000000;
-    padding: 30px 10px 30px 10px;
+    background-color: #FFF;
+    padding: 30px 20px 30px 30px;
+    width: 100%;
 }
 
 h2 {
@@ -19,4 +20,13 @@ h2 {
 .thumbnail .caption-full {
     padding: 9px;
     color: #333;
+}
+
+.well .table th {
+    color: #17597d;
+    font-size: 14px;
+}
+
+.well .table td {
+    color: #011d37;
 }

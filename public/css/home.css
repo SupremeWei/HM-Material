@@ -1,5 +1,30 @@
-#owl-banner .item img{
-    display: block;
-    width: 100%;
-    height: auto;
+#featured-wrapper
+{
+    overflow: hidden;
+    padding: 2em 0em;
+    text-align: center;
+}
+
+#featured .title
+{
+    margin-bottom: 1.5em;
+    padding-bottom: 1.5em;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+}
+
+#featured .title h2
+{
+    font-size: 1.2em;
+}
+
+.column1,  .column2,  .column3,  .column4
+{
+    padding-top: 5px;
+    width: 270px;
+}
+
+.column1, .column2, .column3, .column4
+{
+    float: left;
+    margin-right: 15px;
 }

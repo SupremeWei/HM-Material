@@ -1,6 +1,7 @@
 .container {
-    color: #000000;
-    padding: 30px 10px 30px 10px;
+    background-color: #FFF;
+    padding: 30px 20px 30px 30px;
+    width: 100%;
 }
 
 h2 {

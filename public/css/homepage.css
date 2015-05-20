@@ -1,0 +1,129 @@
+html,
+body {
+    font-family: '微軟正黑體', 'Microsoft JhengHei', 'Source Sans Pro', sans-serif;
+    height: 100%;
+    width: 100%;
+    min-width: 920px;
+    margin: 0px;
+    padding: 0px;
+    background: #FFF;
+    color: #18317d;
+}
+
+#owl-banner .item img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+#header-wrapper
+{
+    padding: 1.6em 0em;
+    background: #FFF;
+}
+
+header
+{
+    position: relative;
+    height: 90px;
+    background: #FFF;
+    border: 4px solid #17597d;
+    border-style: hidden hidden solid hidden;
+    border-bottom-color: #17597d;
+    -moz-border-bottom-colors: #17597d;
+    mso-border-bottom-color-alt: #17597d;
+}
+
+#logo
+{
+    position: absolute;
+    left: 20px;
+    width: 500px;
+    padding-right: 0;
+}
+
+#logo h1
+{
+    display: inline-block;
+    font-size: 2.5em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #2C383B;
+    padding-right: 0.50em;
+}
+
+#menu
+{
+    position: absolute;
+    right: 10px;
+    height: 60px;
+    top: 1em;
+}
+
+#menu ul
+{
+    display: inline-block;
+}
+
+#menu li
+{
+    display: block;
+    float: left;
+    text-align: center;
+    line-height: 60px;
+}
+
+#menu li a, #menu li span
+{
+    display: inline-block;
+    margin-left: 1px;
+    padding: 0em 1.5em;
+    letter-spacing: 0.10em;
+    text-decoration: none;
+    font-size: 1em;
+    text-transform: uppercase;
+    outline: 0;
+    color: #1fb5fe;
+}
+
+#menu li.current_page_item a
+{
+    background: #17597d;
+    color: #FFF !important;
+}
+
+#footer-wrapper
+{
+    overflow: hidden;
+    padding: 1em 0em;
+    text-align: center;
+    background: #383838;
+    border: 4px solid #17597d;
+    border-style: solid hidden hidden hidden;
+    border-bottom-color: #17597d;
+    -moz-border-bottom-colors: #17597d;
+    mso-border-bottom-color-alt: #17597d;
+}
+
+#footer
+{
+    overflow: hidden;
+}
+
+#copyright
+{
+    overflow: hidden;
+    padding: 1em 0em;
+    border-style: solid hidden hidden hidden;
+    border-top: 1px solid rgba(255, 81, 87, 0.5);
+    margin: auto 20px;
+}
+
+#copyright p
+{
+    letter-spacing: 0.20em;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 0.80em;
+    color: rgba(255, 81, 87, 0.81);
+}

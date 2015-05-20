@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-    <div id="wrapper">
         <div class="container">
             <div id="wrapper">
                 <div class="row">
@@ -53,7 +52,6 @@
                 </div>
             </div>
         </div>
-    </div>
 @endsection
 
 @section('js')

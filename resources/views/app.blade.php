@@ -6,19 +6,19 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900" rel="stylesheet" />
-    <!-- Scripts -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
     <link href="{{ 'css/bootstrap/bootstrap.css' }}" rel="stylesheet" type="text/css" media="all" />
-    <link href="{{ 'css/default.css' }}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{{ 'css/homepage.css' }}" rel="stylesheet" type="text/css" media="all" />
     <link href="{{ 'css/fonts.css' }}" rel="stylesheet" type="text/css" media="all" />
     <link href="{{ 'css/fontawesome/font-awesome.css' }}" rel="stylesheet" type="text/css" media="all" />
     <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
     @yield('css')
+    <!-- Scripts -->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <div id="header-wrapper">
-        <div id="header" class="container">
+    <header>
+        <div id="header">
             <div id="logo">
                 <h1></span><a href="#">翰鎂科技股份有限公司</a></h1>
             </div>
@@ -31,7 +31,7 @@
                 </ul>
             </div>
         </div>
-    </div>
+    </header>
 
     @yield('content')
 
@@ -60,11 +60,13 @@
                 </div>
             </div>
         </div>
+
+        <div id="copyright" >
+            <p><i class="fa fa-copyright"></i>S.C.R. Cooperation</p>
+        </div>
     </div>
 
-    <div id="copyright" class="container">
-        <p><i class="fa fa-copyright"></i>S.C.R. Cooperation</p>
-    </div>
+
 
     @yield('js')
 </body>
