@@ -7,9 +7,11 @@
 */
 /*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 html {
-  font-family: "微軟正黑體", "Microsoft JhengHei", "新細明體", "PMingLiU", "細明體", "MingLiU", "標楷體", "DFKai-sb", serif;
+  font-family: '微軟正黑體', 'Microsoft JhengHei', '新細明體', 'PMingLiU', '細明體', 'MingLiU', '標楷體', 'DFKai-sb', serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  font-size: 12pt;
+  font-weight: 300;
 }
 body {
   margin: 0;

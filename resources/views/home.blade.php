@@ -6,7 +6,7 @@
     <!-- Default Theme -->
     <link rel="stylesheet" href="owl-carousel/owl.theme.css">
 
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/homepage.css">
 @endsection
 
 @section('content')
@@ -18,32 +18,35 @@
         </div>
     </div>
 
-    <div id="wrapper">
-        <div id="featured-wrapper" class="feature-box">
-            <div id="featured" class="container">
-                <div class="column1 feature-item"><i class="fa fa-search-minus fa-4x"></i>
-                    <div class="title">
-                        <h2>系列搜尋</h2>
+    <div class="container content-sm">
+        <div class="row margin-bottom-30"></div>
+            <div class="col-md-4">
+                <div class="service">
+                    <i class="fa fa-compress service-icon fa-4x"></i>
+                    <div class="desc">
+                        <h4>系列搜尋</h4>
+                        <p>Series</p>
                     </div>
-                    <p>Series</p>
                 </div>
-                <div class="column2 feature-item"><i class="fa fa-search-plus fa-4x"></i>
-                    <div class="title">
-                        <h2>料號搜尋</h2>
+            </div>
+
+            <div class="col-md-4">
+                <div class="service">
+                    <i class="fa fa-compress service-icon fa-4x"></i>
+                    <div class="desc">
+                        <h4>料號搜尋</h4>
+                        <p>Part No.</p>
                     </div>
-                    <p>Part No.</p>
                 </div>
-                <div class="column3 feature-item-r"><i class="fa fa-sellsy fa-4x"></i>
-                    <div class="title">
-                        <h2>規格說明</h2>
+            </div>
+
+            <div class="col-md-4">
+                <div class="service">
+                    <i class="fa fa-compress service-icon fa-4x"></i>
+                    <div class="desc">
+                        <h4>規格說明</h4>
+                        <p>Description</p>
                     </div>
-                    <p>Description</p>
-                </div>
-                <div class="column4 feature-item-r"><i class="fa fa-diamond fa-4x"></i>
-                    <div class="title">
-                        <h2>未知</h2>
-                    </div>
-                    <p>Don't Know put in.</p>
                 </div>
             </div>
         </div>
