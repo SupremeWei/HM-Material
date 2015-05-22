@@ -5,37 +5,39 @@
 @endsection
 
 @section('content')
-    <div id="wrapper">
-        <div class="container">
+    <div class="wrapper">
+        <div class="container content">
             <div class="row">
                 <div class="col-md-3">
-
-                    <p class="lead">電子材料</p>
-                    <div class="list-group item-list">
-                        <a href="#" class="list-group-item active">洗牆燈1</a>
-                        <a href="#" class="list-group-item">洗牆燈2</a>
-                        <a href="#" class="list-group-item">洗牆燈3</a>
-                        <a href="#" class="list-group-item">洗牆燈4</a>
-                        <a href="#" class="list-group-item">洗牆燈5</a>
-                        <a href="#" class="list-group-item">洗牆燈6</a>
-                        <a href="#" class="list-group-item">洗牆燈7</a>
-                        <a href="#" class="list-group-item">洗牆燈8</a>
-                        <a href="#" class="list-group-item">洗牆燈9</a>
-                        <a href="#" class="list-group-item">洗牆燈10</a>
-                        <a href="#" class="list-group-item">洗牆燈11</a>
-                        <a href="#" class="list-group-item">洗牆燈12</a>
-                        <a href="#" class="list-group-item">洗牆燈13</a>
-                        <a href="#" class="list-group-item">洗牆燈14</a>
-                        <a href="#" class="list-group-item">洗牆燈15</a>
-                        <a href="#" class="list-group-item">洗牆燈16</a>
-                        <a href="#" class="list-group-item">洗牆燈17</a>
-                        <a href="#" class="list-group-item">洗牆燈18</a>
-                        <a href="#" class="list-group-item">洗牆燈19</a>
-                        <a href="#" class="list-group-item">洗牆燈20</a>
-                    </div>
+                    <ul id="sidebar-nav" class="list-group sidebar-nav-v1">
+                        <li class="list-group-item list-toggle">
+                            <a class="" href="#collapse-typography" data-parent="#sidebar-nav" data-toggle="collapse" aria-expanded="false">LED</a>
+                            <ul id="collapse-typography" class="collapse" aria-expanded="false" style="height: 0px;">
+                                <li>
+                                    <a href="#">High power LED</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="list-group-item list-toggle">
+                            <a class="" href="#collapse-icons" data-parent="#sidebar-nav" data-toggle="collapse" aria-expanded="false">LED 1</a>
+                            <ul id="collapse-icons" class="collapse" aria-expanded="false" style="height: 0px;">
+                                <li>
+                                    <a href="#">High power LED</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="list-group-item list-toggle">
+                            <a class="" href="#collapse-abc" data-parent="#sidebar-nav" data-toggle="collapse" aria-expanded="false">LED 2</a>
+                            <ul id="collapse-abc" class="collapse" aria-expanded="false" style="height: 0px;">
+                                <li>
+                                    <a href="#">High power LED</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
-                <div class="col-md-9">
 
+                <div class="col-md-9">
                     <div class="thumbnail">
                         <img class="img-responsive" src="{{ 'images/washlight.jpg' }}" alt="">
                     </div>
