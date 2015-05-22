@@ -128,7 +128,13 @@
         </div>
     </div>
 
-
+    <script src="{{ url('js/jquery/jquery.min.js') }}" type="javascript"></script>
+    <script src="{{ url('js/jquery/jquery-migrate.min.js') }}" type="javascript"></script>
+    <script src="{{ url('js/bootstrap/bootstrap.js') }}" type="javascript"></script>
+    <script src="{{ url('js/back-to-top.js') }}" type="javascript"></script>
+    <script src="{{ url('js/smoothScroll.js') }}" type="javascript"></script>
+    <script src="{{ url('js/app.js') }}" type="javascript"></script>
+    <script src="{{ url('js/style-switcher.js') }}" type="javascript"></script>
     @yield('js')
 </body>
 </html>
