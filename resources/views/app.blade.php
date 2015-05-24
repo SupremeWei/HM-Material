@@ -14,9 +14,7 @@
     <link href="{{ 'css/fontawesome/font-awesome.css' }}" rel="stylesheet" type="text/css" media="all" />
     <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
     @yield('css')
-    <!-- Scripts -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
 </head>
 <body>
     <div class="wrapper">
@@ -128,13 +126,13 @@
         </div>
     </div>
 
-    <script src="{{ url('js/jquery/jquery.min.js') }}" type="javascript"></script>
-    <script src="{{ url('js/jquery/jquery-migrate.min.js') }}" type="javascript"></script>
-    <script src="{{ url('js/bootstrap/bootstrap.js') }}" type="javascript"></script>
-    <script src="{{ url('js/back-to-top.js') }}" type="javascript"></script>
-    <script src="{{ url('js/smoothScroll.js') }}" type="javascript"></script>
-    <script src="{{ url('js/app.js') }}" type="javascript"></script>
-    <script src="{{ url('js/style-switcher.js') }}" type="javascript"></script>
+    <!-- Scripts -->
+    <script src="{{ 'js/jquery/jquery.min.js' }}"></script>
+    <script src="{{ 'js/bootstrap/bootstrap.min.js' }}"></script>
+    <script src="{{ 'js/back-to-top.js' }}" ></script>
+    <script src="{{ 'js/smoothScroll.js' }}" ></script>
+    <script src="{{ 'js/app.js' }}" ></script>
+    <script src="{{ 'js/style-switcher.js' }}" ></script>
     @yield('js')
 </body>
 </html>
