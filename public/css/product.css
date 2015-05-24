@@ -129,12 +129,22 @@
     margin-top: 20px;
 }
 
-#owl-demo .item{
+#owl-product .item{
     margin: 3px;
 }
 
-#owl-demo .item img{
+#owl-product .item img{
     display: block;
     width: 100%;
     height: auto;
+}
+
+#owl-product .item {
+    padding: 30px 0px;
+    margin: 10px;
+    color: #FFF;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    text-align: center;
 }
