@@ -145,10 +145,14 @@
                                 </div>
                             </div>
                         </div>
-                        <div id="owl-demo" class="owl-carousel owl-theme" >
+                        <div id="owl-product" class="owl-carousel owl-theme" >
                             <div class="item"><img src="{{ 'images/LED/CXXLT1.gif' }}" alt="Owl Image"></div>
-                            <div class="item"><img src="{{ 'images/LED/CXXLT1.gif' }}" alt="Owl Image"></div>
-                            <div class="item"><img src="{{ 'images/LED/CXXLT1.gif' }}" alt="Owl Image"></div>
+                            <div class="item"><img src="{{ 'images/LED/GNCNC1.gif' }}" alt="Owl Image"></div>
+                            <div class="item"><img src="{{ 'images/LED/Led-Red.gif' }}" alt="Owl Image"></div>
+                            <div class="item"><img src="{{ 'images/LED/LEF-Yellow.gif' }}" alt="Owl Image"></div>
+                            <div class="item"><img src="{{ 'images/LED/NV3JX1.gif' }}" alt="Owl Image"></div>
+                            <div class="item"><img src="{{ 'images/LED/TORYB1.gif' }}" alt="Owl Image"></div>
+                            <div class="item"><img src="{{ 'images/LED/UJOM1.gif' }}" alt="Owl Image"></div>
                         </div>
                     </div>
 
@@ -186,5 +190,5 @@
 
 @section('js')
     <script src="{{ 'owl-carousel/owl.carousel.min.js' }}"></script>
-    <script src="{{ 'js/product.js' }}"</script>
+    <script src="{{ 'js/product.js' }}"></script>
 @endsection
