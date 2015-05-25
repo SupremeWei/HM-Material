@@ -12,7 +12,8 @@ class ProductController extends BaseController {
 	 */
 	public function index()
 	{
-        $products =  productCategory::where('id', '>', '0')->first();
+        $category = productCategory::find(1);
+        $products = $category->items;
 		return view('product', compact('products'));
 	}
 

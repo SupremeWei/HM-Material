@@ -16,8 +16,8 @@ class productTypes extends Model {
         'type_content'
     ];
 
-    public function types()
+    public function items()
     {
-        return $this->belongsTo('App\productCategory', 'category_id');
+        return $this->belongsTo('App\productCategory');
     }
 }

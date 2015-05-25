@@ -9,8 +9,8 @@ class productCategory extends Model {
     // 取消自動更新 update_at and create_at
     public $timestamps = false;
 
-    public function types() {
-        return $this->hasMany('App\productTypes', 'category_id');
+    public function items() {
+        return $this->hasMany('App\productTypes', 'category_id', 'id');
     }
 
 }

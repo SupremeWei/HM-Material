@@ -9,7 +9,9 @@
 @endsection
 
 @section('content')
-    {{ $products }}
+    @foreach($products as $product)
+        {{ $product }}
+    @endforeach
     <div class="wrapper">
         <div class="container content">
             <div class="row">
