@@ -1,5 +1,6 @@
 <?php namespace App\Http\Controllers;
 
+use App\productCategory;
 use Illuminate\Routing\Controller as BaseController;
 
 class ProductController extends BaseController {
@@ -11,7 +12,8 @@ class ProductController extends BaseController {
 	 */
 	public function index()
 	{
-		return view('product');
+        $products =  productCategory::where('id', '>', '0')->first();
+		return view('product', compact('products'));
 	}
 
 }

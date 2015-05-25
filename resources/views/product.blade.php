@@ -9,6 +9,7 @@
 @endsection
 
 @section('content')
+    {{ $products }}
     <div class="wrapper">
         <div class="container content">
             <div class="row">

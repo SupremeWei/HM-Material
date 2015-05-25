@@ -6,6 +6,9 @@ class productTypes extends Model {
 
     protected $table = 'product_types';
 
+    public $timestamps = false;
+
+
 	protected $fillable = [
         'type_code',
         'type_name',
@@ -13,4 +16,8 @@ class productTypes extends Model {
         'type_content'
     ];
 
+    public function types()
+    {
+        return $this->belongsTo('App\productCategory', 'category_id');
+    }
 }
