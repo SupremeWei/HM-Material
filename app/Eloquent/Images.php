@@ -1,8 +1,8 @@
-<?php namespace App;
+<?php namespace App\Eloquent;
 
 use Illuminate\Database\Eloquent\Model;
 
-class productImages extends Model {
+class Images extends Model {
 
     protected $table = 'product_images';
 

@@ -1,8 +1,8 @@
-<?php namespace App;
+<?php namespace App\Eloquent;
 
 use Illuminate\Database\Eloquent\Model;
 
-class productTypes extends Model {
+class Types extends Model {
 
     protected $table = 'product_types';
 
@@ -18,6 +18,6 @@ class productTypes extends Model {
 
     public function items()
     {
-        return $this->belongsTo('App\productCategory');
+        return $this->belongsTo('App\Eloquent\Category');
     }
 }

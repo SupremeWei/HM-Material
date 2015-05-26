@@ -1,8 +1,8 @@
-<?php namespace App;
+<?php namespace App\Eloquent;
 
 use Illuminate\Database\Eloquent\Model;
 
-class productCategory extends Model {
+class Category extends Model {
 
     protected $table = 'product_category';
 
@@ -10,7 +10,7 @@ class productCategory extends Model {
     public $timestamps = false;
 
     public function items() {
-        return $this->hasMany('App\productTypes', 'category_id', 'id');
+        return $this->hasMany('App\Eloquent\Types', 'category_id', 'id');
     }
 
 }
