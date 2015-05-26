@@ -19,4 +19,12 @@ class ProductController extends BaseController {
 		return view('product', compact(['categorys', 'itemAll']));
 	}
 
+    public function show($type_code)
+    {
+        $categorys = Category::all();
+
+        $itemAll = Category::with('items')->get();
+
+        return view('productItems', compact(['categorys', 'itemAll']));
+    }
 }
