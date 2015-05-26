@@ -1,11 +1,11 @@
 @extends('app')
 
 @section('css')
-    <link href="{{ 'css/product.css' }}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{{ url('css/product.css') }}" rel="stylesheet" type="text/css" media="all" />
     <!-- Important Owl stylesheet -->
-    <link rel="stylesheet" href="owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="{{ url('owl-carousel/owl.carousel.css') }}">
     <!-- Default Theme -->
-    <link rel="stylesheet" href="owl-carousel/owl.theme.css">
+    <link rel="stylesheet" href="{{ url('owl-carousel/owl.theme.css') }}">
 @endsection
 
 @section('content')
@@ -37,6 +37,6 @@
 @endsection
 
 @section('js')
-    <script src="{{ 'owl-carousel/owl.carousel.min.js' }}"></script>
-    <script src="{{ 'js/product.js' }}"></script>
+    <script src="{{ url('owl-carousel/owl.carousel.min.js') }}"></script>
+    <script src="{{ url('js/product.js') }}"></script>
 @endsection

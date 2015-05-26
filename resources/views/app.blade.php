@@ -6,13 +6,13 @@
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,600italic' rel='stylesheet' type='text/css'>
-    <link href="{{ 'css/bootstrap/bootstrap.min.css' }}" rel="stylesheet" type="text/css" media="all" />
-    <link href="{{ 'css/style.css' }}" rel="stylesheet" type="text/css" media="all" />
-    <link href="{{ 'css/header.css' }}" rel="stylesheet" type="text/css" media="all" />
-    <link href="{{ 'css/footer.css' }}" rel="stylesheet" type="text/css" media="all" />
-    <link href="{{ 'css/fonts.css' }}" rel="stylesheet" type="text/css" media="all" />
-    <link href="{{ 'css/fontawesome/font-awesome.css' }}" rel="stylesheet" type="text/css" media="all" />
-    <!--[if IE 6]><link href="default_ie6.css" rel="stylesheet" type="text/css" /><![endif]-->
+    <link href="{{ url('css/bootstrap/bootstrap.min.css') }}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{{ url('css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{{ url('css/header.css') }}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{{ url('css/footer.css') }}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{{ url('css/fonts.css') }}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{{ url('css/fontawesome/font-awesome.css') }}" rel="stylesheet" type="text/css" media="all" />
+    <!--[if IE 6]><link href="{{ url('css/default_ie6.css') }}" rel="stylesheet" type="text/css" /><![endif]-->
     @yield('css')
 
 </head>
@@ -129,12 +129,12 @@
     </div>
 
     <!-- Scripts -->
-    <script src="{{ 'js/jquery/jquery.min.js' }}"></script>
-    <script src="{{ 'js/bootstrap/bootstrap.min.js' }}"></script>
-    <script src="{{ 'js/back-to-top.js' }}" ></script>
-    <script src="{{ 'js/smoothScroll.js' }}" ></script>
-    <script src="{{ 'js/app.js' }}" ></script>
-    <script src="{{ 'js/style-switcher.js' }}" ></script>
+    <script src="{{ url('js/jquery/jquery.min.js') }}"></script>
+    <script src="{{ url('js/bootstrap/bootstrap.min.js') }}"></script>
+    <script src="{{ url('js/back-to-top.js') }}" ></script>
+    <script src="{{ url('js/smoothScroll.js') }}" ></script>
+    <script src="{{ url('js/app.js') }}" ></script>
+    <script src="{{ url('js/style-switcher.js') }}" ></script>
     @yield('js')
 </body>
 </html>
