@@ -5,4 +5,4 @@ Route::get('about', 'AboutController@index');
 
 Route::get('product', 'ProductController@index');
 
-Route::get('product/{type_code}', 'ProductController@show');
+Route::get('product/show/{type_code}', 'ProductController@show');

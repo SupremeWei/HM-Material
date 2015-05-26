@@ -10,7 +10,7 @@
                     <!-- Tab Pane Image -->
                     <div class="tab-pane-img">
                         <!-- Image -->
-                        <a href="#"><img src="{{ 'images/LED/CXXLT1.gif' }}" alt="" class="img-responsive"></a>
+                        <a href="#"><img src="{{ url('images/LED/CXXLT1.gif') }}" alt="" class="img-responsive"></a>
                     </div>
                 </div>
                 <div class="tab-pane fade" id="tab-2">
@@ -127,12 +127,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr class="info">
-                        <td>1W & 3W Type</td>
-                        <td>Technical Data Sheet</td>
-                        <td>2000</td>
-                        <td><a href="{{ url('pdf/HPL-1Wand3W.pdf') }}" target="_blank"><i class="fa fa-file-pdf-o fa-2x" ></i></a></td>
-                    </tr>
+                    @foreach($getItems as $items)
+                        <tr class="info">
+                            <td>{{ $items->type_name }}</td>
+                            <td>{{ $items->type_content }}</td>
+                            <td>2000</td>
+                            <td><a href="{{ url('pdf/HPL-1Wand3W.pdf') }}" target="_blank"><i class="fa fa-file-pdf-o fa-2x" ></i></a></td>
+                        </tr>
+                    @endforeach
                     <tr class="info">
                         <td>Reflector Type</td>
                         <td>1W High Power LED with Reflector</td>
