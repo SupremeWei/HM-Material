@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers;
 
-use App\productCategory;
+use App\Eloquent\Category;
 use Illuminate\Routing\Controller as BaseController;
 
 class ProductController extends BaseController {
@@ -12,9 +12,11 @@ class ProductController extends BaseController {
 	 */
 	public function index()
 	{
-        $category = productCategory::find(1);
-        $products = $category->items;
-		return view('product', compact('products'));
+		$categorys = Category::all();
+
+        $itemAll = Category::with('items')->get();
+
+		return view('product', compact(['categorys', 'itemAll']));
 	}
 
 }

@@ -9,38 +9,23 @@
 @endsection
 
 @section('content')
-    @foreach($products as $product)
-        {{ $product }}
-    @endforeach
     <div class="wrapper">
         <div class="container content">
             <div class="row">
                 <div class="col-md-3">
                     <ul id="sidebar-nav" class="list-group sidebar-nav-v1">
-                        <li class="list-group-item list-toggle">
-                            <a class="" href="#collapse-typography" data-parent="#sidebar-nav" data-toggle="collapse" aria-expanded="false">LED</a>
-                            <ul id="collapse-typography" class="collapse" aria-expanded="false">
-                                <li>
-                                    <a href="#">High power LED</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="list-group-item list-toggle">
-                            <a class="" href="#collapse-icons" data-parent="#sidebar-nav" data-toggle="collapse" aria-expanded="false">LED 1</a>
-                            <ul id="collapse-icons" class="collapse" aria-expanded="false">
-                                <li>
-                                    <a href="#">High power LED</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="list-group-item list-toggle">
-                            <a class="" href="#collapse-abc" data-parent="#sidebar-nav" data-toggle="collapse" aria-expanded="false">LED 2</a>
-                            <ul id="collapse-abc" class="collapse" aria-expanded="false">
-                                <li>
-                                    <a href="#">High power LED</a>
-                                </li>
-                            </ul>
-                        </li>
+                        @foreach($categorys as $category)
+                            <li class="list-group-item list-toggle">
+                                <a class="" href="#collapse-{{ $category->name }}" data-parent="#sidebar-nav" data-toggle="collapse" aria-expanded="false">{{ $category->chinese_name }}</a>
+                                <ul id="collapse-{{ $category->name }}" class="collapse" aria-expanded="false">
+                                    @foreach($category->items as $item_single)
+                                        <li>
+                                            <a href="#">{{ $item_single->type_content }}</a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </li>
+                        @endforeach
                     </ul>
                 </div>
 
