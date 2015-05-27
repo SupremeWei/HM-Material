@@ -25,7 +25,7 @@
                                 <label class="label">姓名</label>
                                 <label class="input">
                                     <i class="icon-append fa fa-user"></i>
-                                    <input type="text" class="form-control" name="inputName" placeholder="請輸入姓名">
+                                    <input type="text" class="form-control" name="inputName" placeholder="請輸入姓名" required>
                                 </label>
                             </section>
                             <section class="col col-6">
@@ -41,7 +41,7 @@
                             <label class="label">手機號碼</label>
                             <label class="input">
                                 <i class="icon-append fa fa-phone"></i>
-                                <input type="text" class="form-control" name="inputTel" placeholder="091012345678">
+                                <input type="text" class="form-control" name="inputTel" placeholder="091012345678" required>
                             </label>
                         </section>
 
@@ -49,7 +49,7 @@
                             <label class="label">問題回應</label>
                             <label class="input">
                                 <i class="icon-append fa fa-comments"></i>
-                                <textarea class="form-control" rows="3" name="inputComment" placeholder="請留下您寶貴的意見..." required></textarea>
+                                <textarea class="form-control" name="inputComment" placeholder="請留下您寶貴的意見..." required></textarea>
                             </label>
                         </section>
                     </fieldset>

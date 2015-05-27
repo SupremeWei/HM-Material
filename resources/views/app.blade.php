@@ -37,7 +37,7 @@
                             <li><a href="{{ url('/') }}" accesskey="1" title="">首頁</a></li>
                             <li><a href="{{ url('/about') }}" accesskey="2" title="About Hanmei">關於翰鎂</a></li>
                             <li><a href="{{ url('/product') }}" accesskey="3" title="Productions Information">產品資訊</a></li>
-                            <li><a href="{{ url('/contract') }}" accesskey="4" title="Contact us">聯絡翰鎂</a></li>
+                            <li><a href="{{ url('/contact') }}" accesskey="4" title="Contact us">聯絡翰鎂</a></li>
                         </ul>
                     </div>
                 </div>
