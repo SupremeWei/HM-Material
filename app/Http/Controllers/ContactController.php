@@ -2,7 +2,7 @@
 
 use Illuminate\Routing\Controller as BaseController;
 
-class ContractController extends BaseController {
+class ContactController extends BaseController {
 
 	/**
 	 * Show the application dashboard to the user.
@@ -11,7 +11,7 @@ class ContractController extends BaseController {
 	 */
 	public function index()
 	{
-		return view('contract');
+		return view('contact');
 	}
 
 }

@@ -7,6 +7,6 @@ Route::get('product', 'ProductController@index');
 
 Route::get('product/show/{type_code}', 'ProductController@show');
 
-Route::get('contract', 'ContractController@index');
+Route::get('contract', 'ContactController@index');
 
-Route::post('mail', 'MailController@contract');
+Route::post('mail', 'MailController@contact');

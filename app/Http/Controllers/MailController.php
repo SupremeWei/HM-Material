@@ -11,7 +11,7 @@ class mailController extends BaseController {
      *
      * @return Response
      */
-    public function contract()
+    public function contact()
     {
         $data ['email'] = Input::get('inputEmail');
         $data ['name']  = Input::get('inputName');
@@ -30,8 +30,8 @@ class mailController extends BaseController {
         {
             $message->to($userinfo['email'])->subject($userinfo['subject']);
         });
-        
-        return view('contract');
+
+        return view('contact');
     }
 
 }
