@@ -26,7 +26,8 @@ $('#sendMail').on('click', function(e) {
         return false;
     }
 	
-    $(".dt-loading").fadeIn(300);
+    $('.dt-loading strong').text('寄送中，請稍後。。。');
+    $(".dt-loading").fadeIn(100);
     var params = {
             "name" : name,
             "mail" : mail,
@@ -40,16 +41,16 @@ $('#sendMail').on('click', function(e) {
         type:"POST",
     })
     .done(function(data) {
-        alert( "寄送成功" );
+        $('.dt-loading strong').text('寄送成功');
         $('#inputName').val('');
         $('#inputEmail').val('');
         $('#inputTel').val('');
         $('#inputComment').val('');
     })
     .fail(function(data) {
-        alert( "寄送失敗" );
+        $('.dt-loading strong').text('寄送失敗');
     })
     .always(function(data) {
-        $(".dt-loading").fadeOut(100);
+        $(".dt-loading").fadeOut(1000);
     });
 });
