@@ -8,7 +8,6 @@ class Types extends Model {
 
     public $timestamps = false;
 
-
 	protected $fillable = [
         'type_code',
         'type_name',

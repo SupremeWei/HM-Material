@@ -127,19 +127,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($getItems as $items)
-                        <tr class="info">
-                            <td>{{ $items->type_name }}</td>
-                            <td>{{ $items->type_content }}</td>
-                            <td>2000</td>
-                            <td><a href="{{ url('pdf/HPL-1Wand3W.pdf') }}" target="_blank"><i class="fa fa-file-pdf-o fa-2x" ></i></a></td>
-                        </tr>
-                    @endforeach
                     <tr class="info">
-                        <td>Reflector Type</td>
-                        <td>1W High Power LED with Reflector</td>
-                        <td>6000</td>
-                        <td><a href="{{ url('pdf/HPL-ReflectorType.pdf') }}" target="_blank"><i class="fa fa-file-pdf-o fa-2x"></i></a></td>
+                        <td>{{ $getItems->type_name }}</td>
+                        <td>{{ $getItems->type_content }}</td>
+                        <td>2000</td>
+                        <td><a href="{{ url('pdf/HPL-1Wand3W.pdf') }}" target="_blank"><i class="fa fa-file-pdf-o fa-2x" ></i></a></td>
                     </tr>
                 </tbody>
             </table>
