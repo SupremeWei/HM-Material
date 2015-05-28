@@ -28,7 +28,7 @@ class ProductController extends BaseController {
     {
         $categorys = Category::all();
 
-        $itemAll = Category::with('items')->get();
+        $allTypes = Category::with('types')->get();
 
         $getType = Types::where('type_code', '=', $type_code)->first();
 
@@ -40,6 +40,6 @@ class ProductController extends BaseController {
 
         $getImages = Images::OfItem_code($getItems->item_code)->get();
 
-        return view('productItems', compact(['categorys', 'itemAll', 'getType', 'getItems', 'getDocuments', 'getImages']));
+        return view('productItems', compact(['categorys', 'allTypes', 'getType', 'getItems', 'getDocuments', 'getImages']));
     }
 }

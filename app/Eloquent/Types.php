@@ -15,8 +15,12 @@ class Types extends Model {
         'type_content'
     ];
 
-    public function items()
+    public function types()
     {
         return $this->belongsTo('App\Eloquent\Category');
+    }
+
+    public function items() {
+        return $this->hasMany('App\Eloquent\Items', 'type_code', 'type_code');
     }
 }

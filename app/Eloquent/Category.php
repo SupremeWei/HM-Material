@@ -9,7 +9,7 @@ class Category extends Model {
     // 取消自動更新 update_at and create_at
     public $timestamps = false;
 
-    public function items() {
+    public function types() {
         return $this->hasMany('App\Eloquent\Types', 'category_id', 'id');
     }
 

@@ -14,13 +14,13 @@
             <div class="row">
                 <div class="col-md-3">
                     <ul id="sidebar-nav" class="list-group sidebar-nav-v1">
-                        @foreach($categorys as $category)
+                        @foreach($allTypes as $category)
                             <li class="list-group-item list-toggle">
                                 <a class="" href="#collapse-{{ $category->name }}" data-parent="#sidebar-nav" data-toggle="collapse" aria-expanded="false">{{ $category->chinese_name }}</a>
                                 <ul id="collapse-{{ $category->name }}" class="collapse" aria-expanded="false">
-                                    @foreach($category->items as $item_single)
+                                    @foreach($category->types as $type_single)
                                         <li>
-                                            <a href="{{ action('ProductController@show', [$category->type_code]) }}">{{ $item_single->type_content }}</a>
+                                            <a href="{{ action('ProductController@show', [$category->type_code]) }}">{{ $type_single->type_content }}</a>
                                         </li>
                                     @endforeach
                                 </ul>
