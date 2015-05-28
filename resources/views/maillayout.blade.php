@@ -1,7 +1,7 @@
-name: {{ $name }}
+姓名: {{ $name }}
 <br />
-tel: {{ $tel }}
+電話: {{ $tel }}
 <br />
-email: {{ $email }}
+電子信箱: {{ $mail }}
 <br />
-comment: {{ $comment }}
+意見: {{ $comment }}
