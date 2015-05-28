@@ -2,6 +2,10 @@
 
 use App\Eloquent\Category;
 use App\Eloquent\Types;
+use App\Eloquent\Document;
+use App\Eloquent\Images;
+use App\Eloquent\Items;
+
 use Illuminate\Routing\Controller as BaseController;
 
 class ProductController extends BaseController {
@@ -26,8 +30,16 @@ class ProductController extends BaseController {
 
         $itemAll = Category::with('items')->get();
 
-        $getItems = Types::where('type_code', '=', $type_code)->get();
+        $getType = Types::where('type_code', '=', $type_code)->first();
 
-        return view('productItems', compact(['categorys', 'itemAll', 'getItems']));
+        $getItems = Items::where('type_code', '=', $type_code)->first();
+
+        $getDocuments = Document::OfItem_code($getItems->item_code)->get();
+
+        $searchDocuments = Document::search('size')->get();
+
+        $getImages = Images::OfItem_code($getItems->item_code)->get();
+
+        return view('productItems', compact(['categorys', 'itemAll', 'getType', 'getItems', 'getDocuments', 'getImages']));
     }
 }
