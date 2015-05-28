@@ -28,7 +28,7 @@
                         <span class="icon-bar"></span> 
                         </button>
                         <a class='navbar-brand' href="{{ url('/') }}">
-                            <img id="logo-header" alt="Logo" src="{{ url('images/logo.png') }}">
+                            <img id="logo-header" alt="Logo" src="{{ url('images/logo.png') }}" height="100%">
                             </img>
                         </a>
                     </div>
