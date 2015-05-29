@@ -20,7 +20,7 @@
                                 <ul id="collapse-{{ $category->name }}" class="collapse" aria-expanded="false">
                                     @foreach($category->types as $type_single)
                                         <li>
-                                            <a href="{{ action('ProductController@show', [$category->type_code]) }}">{{ $type_single->type_content }}</a>
+                                            <a href="{{ action('ProductController@show', [$type_single->type_code]) }}">{{ $type_single->type_content }}</a>
                                         </li>
                                     @endforeach
                                 </ul>

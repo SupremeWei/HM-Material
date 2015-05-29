@@ -23,4 +23,9 @@ class Types extends Model {
     public function items() {
         return $this->hasMany('App\Eloquent\Items', 'type_code', 'type_code');
     }
+
+    public function scopeOfType_code($query, $type_code)
+    {
+        return $query->whereType_code($type_code);
+    }
 }

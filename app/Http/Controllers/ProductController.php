@@ -24,22 +24,23 @@ class ProductController extends BaseController {
 		return view('product', compact(['categorys', 'itemAll']));
 	}
 
+    /**
+     * Show the product information for user
+     *
+     * @return Response
+     */
     public function show($type_code)
     {
-        $categorys = Category::all();
-
         $allTypes = Category::with('types')->get();
 
-        $getType = Types::where('type_code', '=', $type_code)->first();
+        $getType = Types::OfType_code($type_code)->get();
 
-        $getItems = Items::where('type_code', '=', $type_code)->first();
+        $getItem = Items::OfType_code($type_code)->first();
 
-        $getDocuments = Document::OfItem_code($getItems->item_code)->get();
+        $getDocuments = Document::OfItem_code($getItem->item_code)->get();
 
-        $searchDocuments = Document::search('size')->get();
+        $getImages = Images::OfItem_code($getItem->item_code)->get();
 
-        $getImages = Images::OfItem_code($getItems->item_code)->get();
-
-        return view('productItems', compact(['categorys', 'allTypes', 'getType', 'getItems', 'getDocuments', 'getImages']));
+        return view('productItems', compact(['allTypes', 'getType', 'getItem', 'getDocuments', 'getImages']));
     }
 }

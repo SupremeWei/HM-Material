@@ -17,4 +17,9 @@ class Items extends Model {
     {
         return $this->hasMany('App\Eloquent\Images', 'item_code', 'item_code');
     }
+
+    public function scopeOfType_code($query, $type_code)
+    {
+        return $query->whereType_code($type_code);
+    }
 }
