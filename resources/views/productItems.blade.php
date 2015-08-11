@@ -1,7 +1,7 @@
 @extends('product')
 
 @section('itemInformation')
-    <div class="col-md-9">
+    <div class="col-md-9" name="productContent">
         <div class="nav-block">
             <!-- Tab Content -->
             <div class="tab-content">

@@ -10,3 +10,5 @@ Route::get('product/show/{type_code}', 'ProductController@show');
 Route::get('contact', 'ContactController@index');
 
 Route::post('mail', 'MailController@contact');
+
+Route::get('product/showLedDetail/{type_code}', 'ProductController@showLedDetail');

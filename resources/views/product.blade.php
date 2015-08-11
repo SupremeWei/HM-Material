@@ -11,7 +11,7 @@
 @section('content')
     <div class="wrapper">
         <div class="container content">
-            <div class="row">
+            <div class="row ledInformation">
                 <div class="col-md-3">
                     <ul id="sidebar-nav" class="list-group sidebar-nav-v1">
                         @foreach($allTypes as $category)
@@ -20,7 +20,11 @@
                                 <ul id="collapse-{{ $category->name }}" class="collapse" aria-expanded="false">
                                     @foreach($category->types as $type_single)
                                         <li>
-                                            <a href="{{ action('ProductController@show', [$type_single->type_code]) }}">{{ $type_single->type_content }}</a>
+                                            @if ($type_single->form_type == 1)
+                                                <a href="{{ action('ProductController@show', [$type_single->type_code]) }}" id="{{ $type_single->type_code }}">{{ $type_single->type_content }}</a>
+                                            @else
+                                                <a name="productLink" href="/" id="{{ $type_single->type_code }}">{{ $type_single->type_content }}</a>
+                                            @endif
                                         </li>
                                     @endforeach
                                 </ul>
@@ -39,4 +43,5 @@
 @section('js')
     <script src="{{ url('owl-carousel/owl.carousel.min.js') }}"></script>
     <script src="{{ url('js/product.js') }}"></script>
+    <script src="{{ url('js/productAjax.js') }}"></script>
 @endsection

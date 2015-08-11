@@ -5,6 +5,7 @@
     <title>翰鎂科技股份有限公司</title>
     <meta name="keywords" content="" />
     <meta name="description" content="" />
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,600italic' rel='stylesheet' type='text/css'>
     <link href="{{ url('css/bootstrap/bootstrap.min.css') }}" rel="stylesheet" type="text/css" media="all" />
     <link href="{{ url('css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
