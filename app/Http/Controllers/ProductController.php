@@ -74,4 +74,18 @@ class ProductController extends BaseController {
 
         return view('ledDetail', compact(['getLedTypes', 'getInformations']));
     }
+
+    /**
+     * Show the product information for user
+     *
+     * @return Response
+     */
+    public function showHighpower($type_code)
+    {
+        $getItem = Items::OfType_code($type_code)->first();
+        $getDocuments = Document::OfItem_code($getItem->item_code)->get();
+        $getImages = Images::OfItem_code($getItem->item_code)->get();
+
+        return view('highpower.highpower', compact(['getDocuments', 'getImages']));
+    }
 }

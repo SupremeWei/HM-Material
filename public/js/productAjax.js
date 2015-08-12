@@ -17,4 +17,17 @@ $(document).ready(function(){
             }
         },"json");
     });
+
+    $("[name='highpower']").click(function(e) {
+        e.preventDefault();
+        var ledType = this.id;
+        $.ajax({
+            url : "/product/showHighpower/" + ledType,
+            dataType: 'html',
+            success : function(data){
+                $("[name='productContent']").remove();
+                $('.ledInformation').append(data);
+            }
+        },"json");
+    });
 });

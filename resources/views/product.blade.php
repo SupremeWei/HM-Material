@@ -22,6 +22,8 @@
                                         <li>
                                             @if ($type_single->form_type == 1)
                                                 <a href="{{ action('ProductController@show', [$type_single->type_code]) }}" id="{{ $type_single->type_code }}">{{ $type_single->type_content }}</a>
+                                            @elseif ($type_single->form_type == 3)
+                                                <a name="highpower" href="/" id="{{ $type_single->type_code }}">{{ $type_single->type_content }}</a>
                                             @else
                                                 <a name="productLink" href="/" id="{{ $type_single->type_code }}">{{ $type_single->type_content }}</a>
                                             @endif
