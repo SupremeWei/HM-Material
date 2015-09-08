@@ -18,8 +18,22 @@ class Items extends Model {
         return $this->hasMany('App\Eloquent\Images', 'item_code', 'item_code');
     }
 
-    public function scopeOfType_code($query, $type_code)
+    public function scopeGetItems($query, $type_code)
     {
         return $query->whereType_code($type_code);
+    }
+
+    public function GroupLinkItems() {
+        return $this->hasManyThrough('App\Eloquent\GroupItems', 'App\Eloquent\Groups', 'items_id', 'group_id');
+    }
+
+    /**
+     * 藉由 items_id 取得 Groups資料
+     *
+     * @author Supreme 2015-09-08
+     * @return Response
+     */
+    public function GroupsTitle() {
+        return $this->hasMany('App\Eloquent\Groups', 'items_id', 'id');
     }
 }

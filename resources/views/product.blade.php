@@ -14,18 +14,18 @@
             <div class="row ledInformation">
                 <div class="col-md-3">
                     <ul id="sidebar-nav" class="list-group sidebar-nav-v1">
-                        @foreach($allTypes as $category)
+                        @foreach($productMenu as $menu)
                             <li class="list-group-item list-toggle">
-                                <a class="" href="#collapse-{{ $category->name }}" data-parent="#sidebar-nav" data-toggle="collapse" aria-expanded="false">{{ $category->chinese_name }}</a>
-                                <ul id="collapse-{{ $category->name }}" class="collapse" aria-expanded="false">
-                                    @foreach($category->types as $type_single)
+                                <a class="" href="#collapse-{{ $menu->name }}" data-parent="#sidebar-nav" data-toggle="collapse" aria-expanded="false">{{ $menu->chinese_name }}</a>
+                                <ul id="collapse-{{ $menu->name }}" class="collapse" aria-expanded="false">
+                                    @foreach($menu->getMenuBarList as $menuItems)
                                         <li>
-                                            @if ($type_single->form_type == 1)
-                                                <a href="{{ action('ProductController@show', [$type_single->type_code]) }}" id="{{ $type_single->type_code }}">{{ $type_single->type_content }}</a>
-                                            @elseif ($type_single->form_type == 3)
-                                                <a name="highpower" href="/" id="{{ $type_single->type_code }}">{{ $type_single->type_content }}</a>
+                                            @if ($menuItems->form_type == 'ledProductImageWithPDF')
+                                                <a name="ledProduct" href="/" id="{{ $menuItems->type_code }}">{{ $menuItems->type_content }}</a>
+                                            @elseif ($menuItems->form_type == 3)
+                                                <a name="highpower" href="/" id="{{ $menuItems->type_code }}">{{ $menuItems->type_content }}</a>
                                             @else
-                                                <a name="productLink" href="/" id="{{ $type_single->type_code }}">{{ $type_single->type_content }}</a>
+                                                <a name="productLink" href="/" id="{{ $menuItems->type_code }}">{{ $menuItems->type_content }}</a>
                                             @endif
                                         </li>
                                     @endforeach

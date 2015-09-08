@@ -15,48 +15,51 @@ use Illuminate\Routing\Controller as BaseController;
 class ProductController extends BaseController {
 
 	/**
-	 * Show the application dashboard to the user.
+	 * 顯示產品左側的Menu, 並提示使用者選擇產品
 	 *
-	 * @return Response
+     * @author Supreme 2015-09-08
+     * @return Response
 	 */
 	public function index()
 	{
-		$categorys = Category::all();
+        $productMenu = Category::with('getMenuBarList')->ActiveCategory()->get();
 
-        $itemAll = Category::with('items')->get();
-
-		return view('product', compact(['categorys', 'itemAll']));
+		return view('productIndex', compact(['productMenu']));
 	}
 
     /**
      * Show the product information for user
      *
+     * @param string $type_code
+     * @author Supreme 2015-09-08
      * @return Response
      */
     public function show($type_code)
     {
         // 查詢左側大類別
-        $allTypes = Category::with('types')->get();
+        $productMenu = Category::with('types')->get();
 
         $getType = Types::OfType_code($type_code)->get();
 
-        $getItem = Items::OfType_code($type_code)->first();
+        $getItem = Items::GetItems($type_code)->first();
 
         $getDocuments = Document::OfItem_code($getItem->item_code)->get();
 
-        $getImages = Images::OfItem_code($getItem->item_code)->get();
+        $getImages = Images::GetImages($getItem->item_code)->get();
 
-        return view('productItems', compact(['allTypes', 'getType', 'getItem', 'getDocuments', 'getImages']));
+        return view('productItems', compact(['productMenu', 'getType', 'getItem', 'getDocuments', 'getImages']));
     }
 
     /**
      * Show the product information for user
      *
-     * @return view
+     * @param string $type_code
+     * @author Supreme 2015-09-08
+     * @return Response
      */
     public function showLedDetail($type_code)
     {
-        $getItem = Items::OfType_code($type_code)->first();
+        $getItem = Items::GetItems($type_code)->first();
 
         $getLedTypes = LedTypes::GetTypesId($getItem->id)->get();
 
@@ -76,16 +79,42 @@ class ProductController extends BaseController {
     }
 
     /**
-     * Show the product information for user
+     * Show the product about highpower
      *
+     * @param string $type_code
+     * @author Supreme 2015-09-08
      * @return Response
      */
     public function showHighpower($type_code)
     {
-        $getItem = Items::OfType_code($type_code)->first();
+        $getItem = Items::GetItems($type_code)->first();
+
         $getDocuments = Document::OfItem_code($getItem->item_code)->get();
-        $getImages = Images::OfItem_code($getItem->item_code)->get();
+
+        $getImages = Images::GetImages($getItem->item_code)->get();
 
         return view('highpower.highpower', compact(['getDocuments', 'getImages']));
+    }
+
+    /**
+     * Show the LED copy from goods
+     *
+     * @param string $type_code
+     * @author Supreme 2015-09-08
+     * @return Response
+     */
+    public function showLedProduct($type_code)
+    {
+        $item = Items::GetItems($type_code)->first();
+
+        $ledGroupTitle = Items::find($item->id)->GroupsTitle()->get();
+
+        $ledGroupItems = Items::with('GroupLinkItems')->find($item->id);
+
+        $ledImages = Images::GetImages($item->item_code)->get();
+
+        $ledDocuments = Document::OfItem_code($item->item_code)->get();
+
+        return view('ledGroup.ledProduct', compact(['ledGroupTitle', 'ledGroupItems', 'ledImages', 'ledDocuments']));
     }
 }

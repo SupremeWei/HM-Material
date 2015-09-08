@@ -14,3 +14,5 @@ Route::post('mail', 'MailController@contact');
 Route::get('product/showLedDetail/{type_code}', 'ProductController@showLedDetail');
 
 Route::get('product/showHighpower/{type_code}', 'ProductController@showHighpower');
+
+Route::get('product/showLedProduct/{type_code}', 'ProductController@showLedProduct');
