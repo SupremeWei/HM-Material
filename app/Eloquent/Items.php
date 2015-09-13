@@ -23,8 +23,14 @@ class Items extends Model {
         return $query->whereType_code($type_code);
     }
 
-    public function GroupLinkItems() {
+    public function GroupLinkItems()
+    {
         return $this->hasManyThrough('App\Eloquent\GroupItems', 'App\Eloquent\Groups', 'items_id', 'group_id');
+    }
+
+    public function GroupLinkDcUseItems()
+    {
+        return $this->hasManyThrough('App\Eloquent\DcUse', 'App\Eloquent\Groups', 'items_id', 'group_id');
     }
 
     /**

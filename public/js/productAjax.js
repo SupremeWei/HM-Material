@@ -43,4 +43,17 @@ $(document).ready(function(){
             }
         },"json");
     });
+
+    $("[name='dcuse']").click(function(e) {
+        e.preventDefault();
+        var ledType = this.id;
+        $.ajax({
+            url : "/product/showDcUseFilm/" + ledType,
+            dataType: 'html',
+            success : function(data){
+                $("[name='productContent']").remove();
+                $('.ledInformation').append(data);
+            }
+        },"json");
+    });
 });

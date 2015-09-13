@@ -22,10 +22,10 @@
                                         <li>
                                             @if ($menuItems->form_type == 'ledProductImageWithPDF')
                                                 <a name="ledProduct" href="/" id="{{ $menuItems->type_code }}">{{ $menuItems->type_content }}</a>
-                                            @elseif ($menuItems->form_type == 3)
+                                            @elseif ($menuItems->form_type == 'highpower')
                                                 <a name="highpower" href="/" id="{{ $menuItems->type_code }}">{{ $menuItems->type_content }}</a>
-                                            @else
-                                                <a name="productLink" href="/" id="{{ $menuItems->type_code }}">{{ $menuItems->type_content }}</a>
+                                            @elseif ($menuItems->form_type == 'dcuseInformations')
+                                                <a name="dcuse" href="/" id="{{ $menuItems->type_code }}">{{ $menuItems->type_content }}</a>
                                             @endif
                                         </li>
                                     @endforeach

@@ -117,4 +117,20 @@ class ProductController extends BaseController {
 
         return view('ledGroup.ledProduct', compact(['ledGroupTitle', 'ledGroupItems', 'ledImages', 'ledDocuments']));
     }
+
+    /**
+     * Show DC-Use
+     *
+     * @param string $type_code
+     * @author Supreme 2015-09-13
+     * @return Response
+     */
+    public function showDcUseFilm($type_code)
+    {
+        $item = Items::GetItems($type_code)->first();
+
+        $groupItems = Items::with('GroupLinkDcUseItems')->find($item->id);
+
+        return view('dcUseFilm.dcUse', compact(['groupItems']));
+    }
 }

@@ -3,16 +3,21 @@ Route::get('/', 'HomeController@index');
 
 Route::get('about', 'AboutController@index');
 
-Route::get('product', 'ProductController@index');
-
-Route::get('product/show/{type_code}', 'ProductController@show');
-
 Route::get('contact', 'ContactController@index');
 
 Route::post('mail', 'MailController@contact');
 
-Route::get('product/showLedDetail/{type_code}', 'ProductController@showLedDetail');
+Route::group(['prefix' => 'product'], function()
+{
+    Route::get('/', 'ProductController@index');
 
-Route::get('product/showHighpower/{type_code}', 'ProductController@showHighpower');
+    Route::get('show/{type_code}', 'ProductController@show');
 
-Route::get('product/showLedProduct/{type_code}', 'ProductController@showLedProduct');
+    Route::get('showLedDetail/{type_code}', 'ProductController@showLedDetail');
+
+    Route::get('showHighpower/{type_code}', 'ProductController@showHighpower');
+
+    Route::get('showLedProduct/{type_code}', 'ProductController@showLedProduct');
+
+    Route::get('showDcUseFilm/{type_code}', 'ProductController@showDcUseFilm');
+});
