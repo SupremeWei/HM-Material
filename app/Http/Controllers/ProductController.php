@@ -115,7 +115,7 @@ class ProductController extends BaseController {
 
         $ledDocuments = Document::OfItem_code($item->item_code)->get();
 
-        return view('ledGroup.ledProduct', compact(['ledGroupTitle', 'ledGroupItems', 'ledImages', 'ledDocuments']));
+        return view('ledGroup.ledproduct', compact(['ledGroupTitle', 'ledGroupItems', 'ledImages', 'ledDocuments']));
     }
 
     /**
