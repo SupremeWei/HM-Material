@@ -70,7 +70,7 @@
                     <h2>營業時間</h2>
                 </div>
                 <ul class="list-unstyled margin-bottom-30">
-                    <li><strong>平日:</strong> 10am to 8pm</li>
+                    <li><strong>平日:</strong> 9am to 6pm</li>
                     <li><strong>假日:</strong> 休息</li>
                 </ul>
             </div>
