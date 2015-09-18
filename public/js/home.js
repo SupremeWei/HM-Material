@@ -32,8 +32,8 @@ $(function() {
         autoPlay : 3000,
         slideSpeed : 200,
         paginationSpeed : 400,
-        singleItem:true
-
+        singleItem:true,
+        navigationText: ["前一張", "後一張"]
         // "singleItem:true" is a shortcut for:
         // items : 1,
         // itemsDesktop : false,
