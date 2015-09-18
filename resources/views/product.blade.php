@@ -19,6 +19,7 @@
                                 <a class="" href="#collapse-{{ $menu->name }}" data-parent="#sidebar-nav" data-toggle="collapse" aria-expanded="false">{{ $menu->chinese_name }}</a>
                                 <ul id="collapse-{{ $menu->name }}" class="collapse" aria-expanded="false">
                                     @foreach($menu->getMenuBarList as $menuItems)
+                                        @if ($menuItems->type_status <> 'D')
                                         <li>
                                             @if ($menuItems->form_type == 'ledProductImageWithPDF')
                                                 <a name="ledProduct" href="/" id="{{ $menuItems->type_code }}">{{ $menuItems->type_content }}</a>
@@ -28,6 +29,7 @@
                                                 <a name="dcuse" href="/" id="{{ $menuItems->type_code }}">{{ $menuItems->type_content }}</a>
                                             @endif
                                         </li>
+                                        @endif
                                     @endforeach
                                 </ul>
                             </li>
