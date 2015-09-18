@@ -59,13 +59,13 @@
                                 </div>
                                 <ul class="list-unstyled latest-list">
                                     <li>
-                                        <a href="#">LED</a>
+                                        <a href="{{ url('/product') }}">發光二極體</a>
                                     </li>
                                     <li>
-                                        <a href="#">High power</a>
+                                        <a href="{{ url('/product') }}">High Power LED</a>
                                     </li>
                                     <li>
-                                        <a href="#">LED</a>
+                                        <a href="{{ url('/product') }}">DC-Use Film Capacitors</a>
                                     </li>
                                 </ul>
                             </div>
@@ -78,15 +78,15 @@
                             </div>
                             <ul class="list-unstyled link-list">
                                 <li>
-                                    <a href="#">
-                                       關於翰鎂
-                                    </a>
+                                    <a href="{{ url('/about') }}">關於翰鎂</a>
                                     <i class="fa fa-angle-right"></i>
                                 </li>
                                 <li>
-                                    <a href="#">
-                                       產品資訊
-                                    </a>
+                                    <a href="{{ url('/product') }}">產品資訊</a>
+                                    <i class="fa fa-angle-right"></i>
+                                </li>
+                                <li>
+                                    <a href="{{ url('/contact') }}">聯絡翰鎂</a>
                                     <i class="fa fa-angle-right"></i>
                                 </li>
                             </ul>
