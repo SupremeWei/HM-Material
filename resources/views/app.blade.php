@@ -98,15 +98,15 @@
                                 </h2>
                             </div>
                             <address class="md-margin-bottom-40">
-                                台中市梧棲區立德街55號
+                                <i class="fa fa-home"></i> 台中市梧棲區立德街55號
                                 <br>
-                                電話: 04-26583542
+                                <i class="fa fa-phone"></i> 電話: 04-26583542
                                 <br>
-                                傳真: 04-26583574
+                                <i class="fa fa-fax"></i> 傳真: 04-26583574
                                 <br>
-                                統編: 12797559
+                                <i class="fa fa-money"></i> 統編: 12797559
                                 <br>
-                                EMail:
+                                <i class="fa fa-mail-forward"></i> EMail:
                                 <a class="" href="mailto:cmyew.hm@msa.hinet.net">
                                     cmyew.hm@msa.hinet.net
                                 </a>
