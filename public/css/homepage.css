@@ -4,3 +4,7 @@
     width: 100%;
     height: auto;
 }
+
+a, a:hover {
+    text-decoration: none;
+}
