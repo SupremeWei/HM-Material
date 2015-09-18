@@ -18,35 +18,49 @@
         </div>
     </div>
 
-    <div class="container content-sm">
-        <div class="row margin-bottom-30"></div>
-            <div class="col-md-4">
-                <div class="service">
-                    <i class="fa fa-compress service-icon fa-4x"></i>
-                    <div class="desc">
-                        <h4>系列搜尋</h4>
-                        <p>Series</p>
-                    </div>
-                </div>
+    <div class="container content">
+        <div class="shadow-wrapper">
+            <div class="tag-box tag-box-v1 box-shadow shadow-effect-2">
+                <h2>翰鎂提供完善的產品</h2>
+                <p>商品的選擇性上多樣性</p>
             </div>
-
-            <div class="col-md-4">
-                <div class="service">
-                    <i class="fa fa-compress service-icon fa-4x"></i>
-                    <div class="desc">
-                        <h4>料號搜尋</h4>
-                        <p>Part No.</p>
-                    </div>
+        </div>
+            <div class="row margin-bottom-20">
+                <div class="col-md-3 col-sm-6">
+                    <a href="{{ url('/') }}">
+                        <div class="service-block service-block-default">
+                            <i class="icon-custom icon-lg icon-color-blue fa fa-home"></i>
+                            <h2 class="heading-md">首頁</h2>
+                            <p>詳細資訊盡在首頁</p>
+                        </div>
+                    </a>
                 </div>
-            </div>
-
-            <div class="col-md-4">
-                <div class="service">
-                    <i class="fa fa-compress service-icon fa-4x"></i>
-                    <div class="desc">
-                        <h4>規格說明</h4>
-                        <p>Description</p>
-                    </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="{{ url('/') }}" style="text-decoration:none;">
+                        <div class="service-block service-block-default">
+                            <i class="icon-custom icon-lg icon-color-yellow fa fa-building"></i>
+                            <h2 class="heading-md">關於翰鎂</h2>
+                            <p>瞭解更多翰鎂科技有限公司</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="{{ url('/') }}" style="text-decoration:none;">
+                        <div class="service-block service-block-default">
+                            <i class="icon-custom icon-lg icon-color-red fa fa-server"></i>
+                            <h2 class="heading-md">產品資訊</h2>
+                            <p>豐富產品提供給客戶</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <a href="{{ url('/') }}" style="text-decoration:none;">
+                        <div class="service-block service-block-default">
+                            <i class="icon-custom icon-lg icon-color-green fa fa-envelope"></i>
+                            <h2 class="heading-md">聯絡翰鎂</h2>
+                            <p>歡迎對公司的意見與指教</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
