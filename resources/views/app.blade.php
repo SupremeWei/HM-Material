@@ -30,12 +30,11 @@
                         </button>
                         <a class='navbar-brand' href="{{ url('/') }}">
                             <img id="logo-header" alt="Logo" src="{{ url('images/logo.png') }}">
-                            </img>
                         </a>
                     </div>
                     <div class="collapse navbar-collapse" id="myNavbar">
                         <ul class="nav navbar-nav">
-                            <li><a href="{{ url('/') }}" accesskey="1" title="">首頁</a></li>
+                            <li><a href="{{ url('/') }}" accesskey="1" title="Home">首頁</a></li>
                             <li><a href="{{ url('/about') }}" accesskey="2" title="About Hanmei">關於翰鎂</a></li>
                             <li><a href="{{ url('/product/') }}" accesskey="3" title="Productions Information">產品資訊</a></li>
                             <li><a href="{{ url('/contact') }}" accesskey="4" title="Contact us">聯絡翰鎂</a></li>
@@ -99,7 +98,7 @@
                                 </h2>
                             </div>
                             <address class="md-margin-bottom-40">
-                                臺中市梧棲區大村里中央路一段675號
+                                台中市梧棲區立德街55號
                                 <br>
                                 電話: 04-26583542
                                 <br>
@@ -121,7 +120,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <p><i class="fa fa-copyright"></i>S.C.R. Cooperation</p>
+                            <p><i class="fa fa-copyright"></i>2015 翰鎂科技股份有限公司擁有</p>
                         </div>
                     </div>
                 </div>
