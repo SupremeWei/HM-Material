@@ -47,6 +47,15 @@
                         <td>{{ $items->spec_description }}</td>
                         <td>
                             <a target="_blank"><i class="fa fa-file-pdf-o fa-2x" ></i></a>
+                            {!! Form::open(array('url' => '/product/uploadPdf', 'method'=>'POST', 'files' => true)) !!}
+                            <div class="form-group">
+                                {!! Form::label('PDF') !!}
+                                {!! Form::file('pdf') !!}
+                            </div>
+                            <div class="form-group">
+                                {!! Form::submit('Submit', array('class'=>'send-btn')) !!}
+                            </div>
+                            {!! Form::close() !!}
                         </td>
                     </tr>
                     @endif

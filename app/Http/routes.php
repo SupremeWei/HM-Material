@@ -20,4 +20,6 @@ Route::group(['prefix' => 'product'], function()
     Route::get('showLedProduct/{type_code}', 'ProductController@showLedProduct');
 
     Route::get('showDcUseFilm/{type_code}', 'ProductController@showDcUseFilm');
+
+    Route::post('uploadPdf', 'ProductController@uploadPDF');
 });

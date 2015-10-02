@@ -12,6 +12,11 @@ use Illuminate\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 
+use Input;
+use Validator;
+use Redirect;
+use Session;
+
 class ProductController extends BaseController {
 
 	/**
@@ -133,4 +138,37 @@ class ProductController extends BaseController {
 
         return view('dcUseFilm.dcUse', compact(['groupItems']));
     }
+
+    public function uploadPdf()
+    {
+        // getting all of the post data
+        dd(Input::file('pdf'));
+        $file = array('pdf' => Input::file('pdf'));
+        // setting up rules
+        $rules = array('pdf' => 'required',); //mimes:jpeg,bmp,png and for max size max:10000
+        // doing the validation, passing post data, rules and the messages
+        $validator = Validator::make($file, $rules);
+        if ($validator->fails()) {
+            // send back to the page with the input data and errors
+            return Redirect::to('product')->withInput()->withErrors($validator);
+        }
+        else {
+            // checking file is valid.
+            if (Input::file('image')->isValid()) {
+                $destinationPath = 'uploads'; // upload path
+                $extension = Input::file('image')->getClientOriginalExtension(); // getting image extension
+                $fileName = rand(11111,99999).'.'.$extension; // renameing image
+                Input::file('image')->move($destinationPath, $fileName); // uploading file to given path
+                // sending back with message
+                Session::flash('success', 'Upload successfully');
+                return Redirect::to('product');
+            }
+            else {
+                // sending back with error message.
+                Session::flash('error', 'uploaded file is not valid');
+                return Redirect::to('product');
+            }
+        }
+    }
+
 }
