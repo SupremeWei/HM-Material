@@ -9,13 +9,11 @@ use App\Eloquent\Images;
 use App\Eloquent\Items;
 
 use Illuminate\Http\Response;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
 
-use Input;
-use Validator;
-use Redirect;
-use Session;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+
 
 class ProductController extends BaseController {
 
@@ -28,8 +26,8 @@ class ProductController extends BaseController {
 	public function index()
 	{
         $productMenu = Category::with('getMenuBarList')->ActiveCategory()->get();
-
-		return view('productIndex', compact(['productMenu']));
+        $loginAdmin = Session::get('loginAdmin');
+		return view('productIndex', compact(['productMenu', 'loginAdmin']));
 	}
 
     /**
@@ -120,7 +118,9 @@ class ProductController extends BaseController {
 
         $ledDocuments = Document::OfItem_code($item->item_code)->get();
 
-        return view('ledGroup.ledproduct', compact(['ledGroupTitle', 'ledGroupItems', 'ledImages', 'ledDocuments']));
+        $loginAdmin = Session::get('loginAdmin');
+
+        return view('ledGroup.ledproduct', compact(['ledGroupTitle', 'ledGroupItems', 'ledImages', 'ledDocuments', 'loginAdmin']));
     }
 
     /**
@@ -139,10 +139,18 @@ class ProductController extends BaseController {
         return view('dcUseFilm.dcUse', compact(['groupItems']));
     }
 
-    public function uploadPdf()
+    /**
+     * put pdf
+     *
+     * @param int $group_id
+     * @param int $groupItem_id
+     *
+     * @author Supreme 2015-10-28
+     * @return Response
+     */
+    public function uploadPdf($group_id, $groupItem_id)
     {
         // getting all of the post data
-        dd(Input::file('pdf'));
         $file = array('pdf' => Input::file('pdf'));
         // setting up rules
         $rules = array('pdf' => 'required',); //mimes:jpeg,bmp,png and for max size max:10000
@@ -151,22 +159,23 @@ class ProductController extends BaseController {
         if ($validator->fails()) {
             // send back to the page with the input data and errors
             return Redirect::to('product')->withInput()->withErrors($validator);
-        }
-        else {
+        } else {
             // checking file is valid.
-            if (Input::file('image')->isValid()) {
-                $destinationPath = 'uploads'; // upload path
-                $extension = Input::file('image')->getClientOriginalExtension(); // getting image extension
-                $fileName = rand(11111,99999).'.'.$extension; // renameing image
-                Input::file('image')->move($destinationPath, $fileName); // uploading file to given path
+            if (Input::file('pdf')->isValid()) {
+                $destinationPath = $group_id; // upload path
+                $fileName = Input::file('pdf')->getClientOriginalName(); // getting image extension
+                $clearFrontAndBack = trim($fileName);
+                $replaceSpaceToUnderLine = preg_replace('/\s(?=)/', '_', $clearFrontAndBack);
+                Input::file('pdf')->move($destinationPath, $replaceSpaceToUnderLine); // uploading file to given path
+
                 // sending back with message
                 Session::flash('success', 'Upload successfully');
-                return Redirect::to('product');
+                //return Redirect::to('product');
             }
             else {
                 // sending back with error message.
                 Session::flash('error', 'uploaded file is not valid');
-                return Redirect::to('product');
+                //return Redirect::to('product');
             }
         }
     }

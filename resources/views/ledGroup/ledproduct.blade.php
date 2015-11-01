@@ -31,39 +31,47 @@
 
     </div>
 
-    <div class="well">
-        <table class="table table-striped table-hover ">
+        <div class="panel panel-sea margin-bottom-40">
             @foreach ($ledGroupTitle as $groupTitle)
-            <thead>
-                <tr>
-                    <th>{{ $groupTitle->title }}</th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($ledGroupItems->GroupLinkItems as $items)
-                    @if ($groupTitle->id == $items->group_id)
-                    <tr class="info">
-                        <td>{{ $items->spec_description }}</td>
-                        <td>
-                            <a target="_blank"><i class="fa fa-file-pdf-o fa-2x" ></i></a>
-                            {!! Form::open(array('url' => '/product/uploadPdf', 'method'=>'POST', 'files' => true)) !!}
-                            <div class="form-group">
-                                {!! Form::label('PDF') !!}
-                                {!! Form::file('pdf') !!}
-                            </div>
-                            <div class="form-group">
-                                {!! Form::submit('Submit', array('class'=>'send-btn')) !!}
-                            </div>
-                            {!! Form::close() !!}
-                        </td>
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        {{ $groupTitle->title }}
+                    </h3>
+                </div>
+                <table class="table table-striped">
+                    <tr>
+                        <th>PDF Document</th>
+                        <th>PDF Files</th>
+                        @if ($loginAdmin)
+                            <th>PDF Upload</th>
+                        @endif
                     </tr>
-                    @endif
-                @endforeach
-            </tbody>
+                    @foreach($ledGroupItems->GroupLinkItems as $items)
+                        @if ($groupTitle->id == $items->group_id)
+                        <tr>
+                            <td class="col-md-8">{{ $items->spec_description }}</td>
+                            <td class="col-md-1">
+                                @if ($items->spec_pdf_dir == '')
+                                    <a target="_blank"><i class="fa fa-file-pdf-o fa-2x" ></i></a>
+                                @else
+                                    <a target="_blank" href="{{$items->spec_pdf_dir}}/{{$items->spec_pdf_file_name}}"><i class="fa fa-file-pdf-o fa-2x" ></i></a>
+                                @endif
+
+                            </td>
+                            @if ($loginAdmin)
+                            <td class="col-md-3">
+                                {!! Form::open(array('class'=> 'sky-form', 'url' => "/product/uploadPdf/$items->group_id/$items->group_items_id", 'method'=>'POST', 'files' => true)) !!}
+                                    {!! Form::file('pdf') !!}
+                                    {!! Form::submit('上傳', array('class'=>'button')) !!}
+                                {!! Form::close() !!}
+                            </td>
+                            @endif
+                        </tr>
+                        @endif
+                    @endforeach
+                </table>
             @endforeach
-        </table>
-    </div>
+        </div>
 </div>
 
 <script>

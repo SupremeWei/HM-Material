@@ -21,5 +21,11 @@ Route::group(['prefix' => 'product'], function()
 
     Route::get('showDcUseFilm/{type_code}', 'ProductController@showDcUseFilm');
 
-    Route::post('uploadPdf', 'ProductController@uploadPDF');
+    Route::post('uploadPdf/{group_id}/{groupItem_id}', 'ProductController@uploadPDF');
 });
+
+Route::get('login', 'Login\LoginController@index');
+
+Route::post('login', 'Login\LoginController@dologin');
+
+Route::get('logout', 'Login\LoginController@dologout');
