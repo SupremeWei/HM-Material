@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Eloquent\Category;
+use App\Eloquent\GroupItems;
 use App\Eloquent\LedInformations;
 use App\Eloquent\LedTypes;
 use App\Eloquent\Types;
@@ -13,7 +14,9 @@ use Illuminate\Routing\Controller as BaseController;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\File;
 
 class ProductController extends BaseController {
 
@@ -162,13 +165,22 @@ class ProductController extends BaseController {
         } else {
             // checking file is valid.
             if (Input::file('pdf')->isValid()) {
-                $destinationPath = $group_id; // upload path
-                $fileName = Input::file('pdf')->getClientOriginalName(); // getting image extension
+
+                $oldItems = GroupItems::GroupItemsId($groupItem_id)->first()->spec_pdf_file_name;
+                if ($oldItems != '' && File::exists("$group_id/".$oldItems)) {
+                    File::delete("$group_id/".$oldItems);
+                }
+
+                $destinationPath = $group_id;
+                $fileName = Input::file('pdf')->getClientOriginalName();
                 $clearFrontAndBack = trim($fileName);
                 $replaceSpaceToUnderLine = preg_replace('/\s(?=)/', '_', $clearFrontAndBack);
+
                 Input::file('pdf')->move($destinationPath, $replaceSpaceToUnderLine); // uploading file to given path
 
-                // sending back with message
+                $groupItems = new GroupItems();
+                $updateResult = $groupItems->updatePDFInFormation($groupItem_id, $group_id, $replaceSpaceToUnderLine);
+
                 Session::flash('success', 'Upload successfully');
                 //return Redirect::to('product');
             }
