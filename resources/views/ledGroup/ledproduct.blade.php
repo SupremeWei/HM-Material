@@ -49,20 +49,27 @@
                     @foreach($ledGroupItems->GroupLinkItems as $items)
                         @if ($groupTitle->id == $items->group_id)
                         <tr>
-                            <td class="col-md-8">{{ $items->spec_description }}</td>
+                            @if ($loginAdmin)
+                                <td class="col-md-4">{{ $items->spec_description }}</td>
+                            @else
+                                <td class="col-md-8">{{ $items->spec_description }}</td>
+                            @endif
                             <td class="col-md-1">
                                 @if ($items->spec_pdf_dir == '')
-                                    <a target="_blank"><i class="fa fa-file-pdf-o fa-2x" ></i></a>
+                                    <p>No PDFs</p>
                                 @else
-                                    <a target="_blank" href="{{$items->spec_pdf_dir}}/{{$items->spec_pdf_file_name}}"><i class="fa fa-file-pdf-o fa-2x" ></i></a>
+                                    <a target="_blank" href="hm_file/{{$items->spec_pdf_dir}}/{{$items->spec_pdf_file_name}}"><i class="fa fa-file-pdf-o fa-2x" ></i></a>
                                 @endif
 
                             </td>
                             @if ($loginAdmin)
-                            <td class="col-md-3">
+                            <td class="col-md-7">
                                 {!! Form::open(array('class'=> 'sky-form', 'url' => "/product/uploadPdf/$items->group_id/$items->group_items_id", 'method'=>'POST', 'files' => true)) !!}
-                                    {!! Form::file('pdf') !!}
-                                    {!! Form::submit('上傳', array('class'=>'button')) !!}
+                                <label for="file" class="input input-file">
+                                    <div class="button"><input id="file" onchange="this.parentNode.nextSibling.value = this.value" type="file" name="pdf">Browse</div><input readonly="" type="text">
+                                </label>
+
+                                {!! Form::submit('上傳', array('class' => 'button')) !!}
                                 {!! Form::close() !!}
                             </td>
                             @endif

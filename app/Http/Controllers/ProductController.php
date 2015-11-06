@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Redirect;
 
 class ProductController extends BaseController {
 
@@ -167,11 +168,11 @@ class ProductController extends BaseController {
             if (Input::file('pdf')->isValid()) {
 
                 $oldItems = GroupItems::GroupItemsId($groupItem_id)->first()->spec_pdf_file_name;
-                if ($oldItems != '' && File::exists("$group_id/".$oldItems)) {
-                    File::delete("$group_id/".$oldItems);
+                if ($oldItems != '' && File::exists( "hm_file/"."$group_id/".$oldItems)) {
+                    File::delete( "hm_file/"."$group_id/".$oldItems);
                 }
 
-                $destinationPath = $group_id;
+                $destinationPath = "hm_file/".$group_id;
                 $fileName = Input::file('pdf')->getClientOriginalName();
                 $clearFrontAndBack = trim($fileName);
                 $replaceSpaceToUnderLine = preg_replace('/\s(?=)/', '_', $clearFrontAndBack);
