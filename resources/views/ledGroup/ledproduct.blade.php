@@ -64,12 +64,16 @@
                             </td>
                             @if ($loginAdmin)
                             <td class="col-md-7">
-                                {!! Form::open(array('class'=> 'sky-form', 'url' => "/product/uploadPdf/$items->group_id/$items->group_items_id", 'method'=>'POST', 'files' => true)) !!}
+                                {!! Form::open(array('id' => 'isThis', 'class'=> 'sky-form', 'url' => "/product/uploadPdf/$items->group_id/$items->group_items_id", 'method'=>'POST', 'files' => true)) !!}
                                 <label for="file" class="input input-file">
                                     <div class="button"><input id="file" onchange="this.parentNode.nextSibling.value = this.value" type="file" name="pdf">Browse</div><input readonly="" type="text">
                                 </label>
-
-                                {!! Form::submit('上傳', array('class' => 'button')) !!}
+                                <button type="button" class="button" name="putfile"
+                                        data-toggle="modal"
+                                        data-product_token="{{ csrf_token() }}"
+                                        data-product_name="{{ $items->spec_description }}"
+                                        data-product_url="{{ url("/product/uploadPdf/$items->group_id/$items->group_items_id") }}">上傳
+                                </button>
                                 {!! Form::close() !!}
                             </td>
                             @endif
@@ -94,5 +98,41 @@
         pagination: true,
         mouseDrag: true,
         touchDrag: true
+    });
+    
+    $("[name='putfile']").click(function (e) {
+        var product_url = $(this).attr("data-product_url");
+        var product_name = $(this).attr("data-product_name");
+        swal({
+                    title: "上傳 PDF 檔案",
+                    text: "確定把舊的pdf檔名" + product_name + " 給刪除, 並換上新的",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "是, 確定更換",
+                    cancelButtonText: "否, 取消更換",
+                    closeOnConfirm: false,
+                    closeOnCancel: false
+                },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        alert(product_url);
+                        $.ajax({
+                            type: "POST",
+                            url: product_url,
+                            data: new FormData($("#isThis")[0]),
+                            processData: false,
+                            contentType: false,
+                            success: function (response) {
+                                swal("Okay", "PDF上傳成功", "success")
+                            },
+                            error: function (response) {
+                                swal("錯誤", "發生未預期錯誤,請再試一次", "error");
+                            }
+                        });
+                    } else {
+                        swal("取消更換", "並未執行換上新PDF檔案", "error");
+                    }
+                });
     });
 </script>
