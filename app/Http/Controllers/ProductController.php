@@ -1,6 +1,7 @@
 <?php namespace App\Http\Controllers;
 
 use App\Eloquent\Category;
+use App\Eloquent\GroupItems;
 use App\Eloquent\LedInformations;
 use App\Eloquent\LedTypes;
 use App\Eloquent\Types;
@@ -9,8 +10,14 @@ use App\Eloquent\Images;
 use App\Eloquent\Items;
 
 use Illuminate\Http\Response;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller as BaseController;
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Redirect;
 
 class ProductController extends BaseController {
 
@@ -23,8 +30,8 @@ class ProductController extends BaseController {
 	public function index()
 	{
         $productMenu = Category::with('getMenuBarList')->ActiveCategory()->get();
-
-		return view('productIndex', compact(['productMenu']));
+        $loginAdmin = Session::get('loginAdmin');
+		return view('productIndex', compact(['productMenu', 'loginAdmin']));
 	}
 
     /**
@@ -115,7 +122,9 @@ class ProductController extends BaseController {
 
         $ledDocuments = Document::OfItem_code($item->item_code)->get();
 
-        return view('ledGroup.ledproduct', compact(['ledGroupTitle', 'ledGroupItems', 'ledImages', 'ledDocuments']));
+        $loginAdmin = Session::get('loginAdmin');
+
+        return view('ledGroup.ledproduct', compact(['ledGroupTitle', 'ledGroupItems', 'ledImages', 'ledDocuments', 'loginAdmin']));
     }
 
     /**
@@ -133,4 +142,55 @@ class ProductController extends BaseController {
 
         return view('dcUseFilm.dcUse', compact(['groupItems']));
     }
+
+    /**
+     * put pdf
+     *
+     * @param int $group_id
+     * @param int $groupItem_id
+     *
+     * @author Supreme 2015-10-28
+     * @return Response
+     */
+    public function uploadPdf($group_id, $groupItem_id)
+    {
+        // getting all of the post data
+        $file = array('pdf' => Input::file('pdf'));
+        // setting up rules
+        $rules = array('pdf' => 'required',); //mimes:jpeg,bmp,png and for max size max:10000
+        // doing the validation, passing post data, rules and the messages
+        $validator = Validator::make($file, $rules);
+        if ($validator->fails()) {
+            // send back to the page with the input data and errors
+            return Redirect::to('product')->withInput()->withErrors($validator);
+        } else {
+            // checking file is valid.
+            if (Input::file('pdf')->isValid()) {
+
+                $oldItems = GroupItems::GroupItemsId($groupItem_id)->first()->spec_pdf_file_name;
+                if ($oldItems != '' && File::exists(public_path()."/hm_file/"."$group_id/".$oldItems)) {
+                    File::delete(public_path()."/hm_file/"."$group_id/".$oldItems);
+                }
+
+                $destinationPath = public_path()."/hm_file/".$group_id;
+                $fileName = Input::file('pdf')->getClientOriginalName();
+                $clearFrontAndBack = trim($fileName);
+                $replaceSpaceToUnderLine = preg_replace('/\s(?=)/', '_', $clearFrontAndBack);
+
+                Input::file('pdf')->move($destinationPath, $replaceSpaceToUnderLine); // uploading file to given path
+
+                $groupItems = new GroupItems();
+                $updateResult = $groupItems->updatePDFInFormation($groupItem_id, $group_id, $replaceSpaceToUnderLine);
+
+                Session::flash('success', 'Upload successfully');
+                //return Redirect::to('product');
+            }
+            else {
+                // sending back with error message.
+                Session::flash('error', 'uploaded file is not valid');
+                //return Redirect::to('product');
+            }
+        }
+    }
+
 }

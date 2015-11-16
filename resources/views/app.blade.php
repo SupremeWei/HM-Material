@@ -12,6 +12,8 @@
     <link href="{{ url('css/header.css') }}" rel="stylesheet" type="text/css" media="all" />
     <link href="{{ url('css/footer.css') }}" rel="stylesheet" type="text/css" media="all" />
     <link href="{{ url('css/fonts.css') }}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{{ url('css/sky-form.css') }}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{{ url('css/libs.css') }}" rel="stylesheet" type="text/css" media="all" />
     <link href="{{ url('css/fontawesome/font-awesome.css') }}" rel="stylesheet" type="text/css" media="all" />
     <!--[if IE 6]><link href="{{ url('css/default_ie6.css') }}" rel="stylesheet" type="text/css" /><![endif]-->
     @yield('css')
@@ -135,6 +137,8 @@
     <script src="{{ url('js/smoothScroll.js') }}" ></script>
     <script src="{{ url('js/app.js') }}" ></script>
     <script src="{{ url('js/style-switcher.js') }}" ></script>
+    <script src="{{ url('js/libs.js') }}" ></script>
+    @include('flash')
     @yield('js')
 </body>
 </html>
