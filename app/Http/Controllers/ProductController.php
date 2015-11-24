@@ -2,6 +2,7 @@
 
 use App\Eloquent\Category;
 use App\Eloquent\GroupItems;
+use App\Eloquent\Groups;
 use App\Eloquent\LedInformations;
 use App\Eloquent\LedTypes;
 use App\Eloquent\Types;
@@ -9,13 +10,12 @@ use App\Eloquent\Document;
 use App\Eloquent\Images;
 use App\Eloquent\Items;
 
+use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Routing\Controller as BaseController;
-
+use App\Http\Controllers\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Redirect;
 
@@ -144,53 +144,26 @@ class ProductController extends BaseController {
     }
 
     /**
-     * put pdf
+     * put pdf with validator and delete old pdf
      *
      * @param int $group_id
      * @param int $groupItem_id
+     * @param Request $request
      *
-     * @author Supreme 2015-10-28
+     * @author Supreme 2015-11-24
      * @return Response
      */
-    public function uploadPdf($group_id, $groupItem_id)
+    public function uploadPdf($group_id, $groupItem_id, Request $request)
     {
-        // getting all of the post data
-        $file = array('pdf' => Input::file('pdf'));
-        // setting up rules
-        $rules = array('pdf' => 'required',); //mimes:jpeg,bmp,png and for max size max:10000
-        // doing the validation, passing post data, rules and the messages
-        $validator = Validator::make($file, $rules);
-        if ($validator->fails()) {
-            // send back to the page with the input data and errors
-            return Redirect::to('product')->withInput()->withErrors($validator);
-        } else {
-            // checking file is valid.
-            if (Input::file('pdf')->isValid()) {
+        $this->validate($request, [
+            'pdf' => 'required|mimes:pdf'
+        ]);
 
-                $oldItems = GroupItems::GroupItemsId($groupItem_id)->first()->spec_pdf_file_name;
-                if ($oldItems != '' && File::exists(public_path()."/hm_file/"."$group_id/".$oldItems)) {
-                    File::delete(public_path()."/hm_file/"."$group_id/".$oldItems);
-                }
+        // 刪除舊的pdf
+        GroupItems::deleteOldPdfIfExists($groupItem_id);
 
-                $destinationPath = public_path()."/hm_file/".$group_id;
-                $fileName = Input::file('pdf')->getClientOriginalName();
-                $clearFrontAndBack = trim($fileName);
-                $replaceSpaceToUnderLine = preg_replace('/\s(?=)/', '_', $clearFrontAndBack);
-
-                Input::file('pdf')->move($destinationPath, $replaceSpaceToUnderLine); // uploading file to given path
-
-                $groupItems = new GroupItems();
-                $updateResult = $groupItems->updatePDFInFormation($groupItem_id, $group_id, $replaceSpaceToUnderLine);
-
-                Session::flash('success', 'Upload successfully');
-                //return Redirect::to('product');
-            }
-            else {
-                // sending back with error message.
-                Session::flash('error', 'uploaded file is not valid');
-                //return Redirect::to('product');
-            }
-        }
+        // 丟上新的pdf並且更新 pdf資料
+        GroupItems::uploadPdfFromForm($request->file('pdf'), $group_id, $groupItem_id);
     }
 
 }
