@@ -2,6 +2,7 @@
 
 use Illuminate\Database\Eloquent\Model;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Illuminate\Support\Facades\File;
 
 class GroupItems extends Model {
 
@@ -9,12 +10,14 @@ class GroupItems extends Model {
 
     protected $primaryKey = 'group_items_id';
 
-    protected $baseDir = "public_path()./hm_file/";
+    protected $baseDir = "/hm_file/";
 
     public $timestamps = false;
 
     /**
-     * @param $groupItem_id
+     * @param $group_Items_id
+     *
+     * @return
      *
      * @author Supreme
      * @date 2015-11-02
@@ -25,28 +28,7 @@ class GroupItems extends Model {
     }
 
     /**
-     * 更新 pdf 的 連結檔名
-     *
-     * @param $groupItemsId
-     * @param $pdf_dir
-     * @param $pdf_file_name
-     *
-     * @return boolean
-     *
-     * @author Supreme
-     * @date 2015-11-19
-     */
-    public static function updatePDFInFormation($groupItemsId, $pdf_dir, $pdf_file_name)
-    {
-        $updateResult = static::where('group_items_id', '=', $groupItemsId)
-                                ->update(array('spec_pdf_dir' => $pdf_dir,
-                                               'spec_pdf_file_name' => $pdf_file_name));
-
-        return $updateResult;
-    }
-
-    /**
-     * 與Groups的串連
+     * 與 model Groups 的串連, 屬於一個 group
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
      *
@@ -59,38 +41,50 @@ class GroupItems extends Model {
     }
 
     /**
+     * 修改 dir, file name
+     *
      * @param UploadedFile $file
-     * @param $group_id
-     * @param $group_item_id
+     * @param int $pdf_dir
+     * @param int $group_item_id
+     *
      * @return mixed
+     *
+     * @author Supreme 2015-11-25
      */
-    public function updateItemDirAndName(UploadedFile $file, $group_id, $group_item_id)
+    public function updateItemDirAndName(UploadedFile $file, $pdf_dir, $group_item_id)
     {
         $itemData = $this->item($group_item_id);
 
-        $itemData->spec_pdf_dir = $group_id;
+        $itemData->spec_pdf_dir = $pdf_dir;
 
         $fileName = $file->getClientOriginalName();
 
-        $itemData->spec_pdf_file_name = $itemData->replaceSpaceToUnderLine($fileName);
+        $itemData->spec_pdf_file_name = $group_item_id."-".$itemData->replaceSpaceToUnderLine($fileName);
+
+        $itemData->save();
 
         return $itemData;
     }
 
     /**
+     * upload pdf
+     *
      * @param UploadedFile $file
-     * @param $group_id
+     * @param int $group_id
+     * @param int $group_item_id
      * @return static
+     *
+     * @author Supreme 2015-11-25
      */
     public static function uploadPdfFromForm(UploadedFile $file, $group_id, $group_item_id)
     {
         $item = new static;
 
-        $destinationPath = $item->baseDir . '/' . $group_id;
+        $destinationPath = public_path().$item->baseDir . '/' . $group_id;
 
         $fileName = $file->getClientOriginalName();
 
-        $file->move($destinationPath, $item->replaceSpaceToUnderLine($fileName));
+        $file->move($destinationPath, $group_item_id."-".$item->replaceSpaceToUnderLine($fileName));
 
         $item->updateItemDirAndName($file, $group_id, $group_item_id);
 
@@ -98,8 +92,13 @@ class GroupItems extends Model {
     }
 
     /**
+     * 空白替換成 underline
+     *
      * @param $filename
+     *
      * @return mixed
+     *
+     * @author Supreme 2015-11-25
      */
     public function replaceSpaceToUnderLine($filename)
     {
@@ -107,16 +106,24 @@ class GroupItems extends Model {
     }
 
     /**
+     * 檢查是否有舊有檔案, 先行刪除節省網路上空間
+     *
      * @param $group_item_id
+     *
+     * @author Supreme 2015-11-25
      */
-    public function deleteOldPdfIfExists($group_item_id)
+    public static function deleteOldPdfIfExists($group_item_id)
     {
-        $itemData = $this->item($group_item_id);
+        $item = new static;
+
+        $itemData = $item->item($group_item_id);
+
         $oldGroupId = $itemData->group_id;
+
         $oldPdfName = $itemData->spec_pdf_file_name;
 
-        if ($oldPdfName != '' && File::exists($this->baseDir."$oldGroupId/$oldPdfName")) {
-            File::delete($this->baseDir."$oldGroupId/$oldPdfName");
+        if ($oldPdfName != '' && File::exists(public_path().$item->baseDir."$group_item_id.-$oldGroupId/$oldPdfName")) {
+            File::delete(public_path().$item->baseDir."$group_item_id.-$oldGroupId/$oldPdfName");
         }
     }
 }

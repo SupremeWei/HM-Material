@@ -16,8 +16,9 @@ use App\Http\Controllers\Controller as BaseController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Redirect;
+
+use App\Http\Requests\UploadFileRequest;
 
 class ProductController extends BaseController {
 
@@ -153,12 +154,8 @@ class ProductController extends BaseController {
      * @author Supreme 2015-11-24
      * @return Response
      */
-    public function uploadPdf($group_id, $groupItem_id, Request $request)
+    public function uploadPdf($group_id, $groupItem_id, UploadFileRequest $request)
     {
-        $this->validate($request, [
-            'pdf' => 'required|mimes:pdf'
-        ]);
-
         // 刪除舊的pdf
         GroupItems::deleteOldPdfIfExists($groupItem_id);
 
