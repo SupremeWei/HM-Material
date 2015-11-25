@@ -125,7 +125,7 @@ class ProductController extends BaseController {
 
         $loginAdmin = Session::get('loginAdmin');
 
-        return view('ledGroup.ledproduct', compact(['ledGroupTitle', 'ledGroupItems', 'ledImages', 'ledDocuments', 'loginAdmin']));
+        return view('ledGroup.ledproduct', compact(['ledGroupTitle', 'ledGroupItems', 'ledImages', 'ledDocuments', 'loginAdmin', 'type_code']));
     }
 
     /**

@@ -126,6 +126,7 @@
                     processData: false,
                     contentType: false,
                     success: function (response) {
+                        $("#"+'<?php echo trim($type_code);?>').click();
                         swal("Okay", "PDF上傳成功", "success")
                     },
                     error: function (response) {
