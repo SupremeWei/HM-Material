@@ -1,8 +1,15 @@
 <?php namespace App\Http\Controllers;
 
-use Illuminate\Routing\Controller as BaseController;
+use App\Http\Controllers\Controller as BaseController;
 
-class HomeController extends BaseController {
+class HomeController extends Controller {
+	/**
+	 * HomeController constructor.
+	 */
+	public function __construct()
+	{
+		parent::__construct();
+	}
 
 	/**
 	 * Show the application dashboard to the user.

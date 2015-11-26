@@ -40,6 +40,9 @@
                             <li><a href="{{ url('/about') }}" accesskey="2" title="About Hanmei">關於翰鎂</a></li>
                             <li><a href="{{ url('/product/') }}" accesskey="3" title="Productions Information">產品資訊</a></li>
                             <li><a href="{{ url('/contact') }}" accesskey="4" title="Contact us">聯絡翰鎂</a></li>
+                            @if ($user != null)
+                                <li><a href="{{ url('/logout') }}" accesskey="5" title="Contact us">管理者登出</a></li>
+                            @endif
                         </ul>
                     </div>
                 </div>

@@ -1,5 +1,7 @@
 <?php namespace App\Http\Controllers;
 
+use App\Http\Controllers\Controller as BaseController;
+
 use App\Eloquent\Category;
 use App\Eloquent\GroupItems;
 use App\Eloquent\Groups;
@@ -12,7 +14,7 @@ use App\Eloquent\Items;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use App\Http\Controllers\Controller as BaseController;
+use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Input;

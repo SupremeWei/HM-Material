@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers;
 
-use Illuminate\Routing\Controller as BaseController;
+use App\Http\Controllers\Controller as BaseController;
 
 class AboutController extends BaseController {
 

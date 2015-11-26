@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers\Login;
 
-use Illuminate\Routing\Controller as BaseController;
+use App\Http\Controllers\Controller as BaseController;
 
 use App\Http\Requests\LoginAdminRequest;
 use Illuminate\Support\Facades\Auth;
@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 
 class LoginController extends BaseController {
+
+    public function __construct()
+    {
+        parent::__construct();
+    }
 
 	/**
 	 * Show the application dashboard to the user.
@@ -39,7 +44,6 @@ class LoginController extends BaseController {
             Session::put('loginAdmin', false);
 
             return Redirect::to('login');
-
         }
 	}
 
