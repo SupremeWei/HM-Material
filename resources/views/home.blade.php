@@ -12,9 +12,10 @@
 @section('content')
     <div id="header-featured">
         <div id="owl-banner" class="owl-carousel owl-theme">
-            <div class="item"><img src="images/fullimage1.jpg" alt="The Last of us"></div>
-            <div class="item"><img src="images/fullimage2.jpg" alt="GTA V"></div>
-            <div class="item"><img src="images/fullimage3.jpg" alt="Mirror Edge"></div>
+            <div class="item"><img src="images/home/hmhome1.jpg" alt="hm1"></div>
+            <div class="item"><img src="images/home/hmhome2.jpg" alt="hm2"></div>
+            <div class="item"><img src="images/home/hmhome3.jpg" alt="hm3"></div>
+            <div class="item"><img src="images/home/hmhome4.jpg" alt="hm3"></div>
         </div>
     </div>
 
