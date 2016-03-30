@@ -30,11 +30,6 @@
     line-height: 23px;
 }
 
-/*Dotted Map*/
-.footer-v1 .footer .map-img {
-    background: url(../../img/map-img.png) 5px 60px no-repeat;
-}
-
 /*Copyright*/
 .footer-v1 .copyright {
     background: #222;
