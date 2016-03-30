@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<div class="container content">
+<div class="container content hmlogin">
 	<div class="row">
 		<div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
 			@if (count($errors) > 0)
