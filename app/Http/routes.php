@@ -24,7 +24,7 @@ Route::group(['prefix' => 'product'], function()
     Route::post('uploadPdf/{group_id}/{groupItem_id}', 'ProductController@uploadPDF');
 });
 
-Route::get('login', 'Login\LoginController@index');
+Route::get('hm-secret-login', 'Login\LoginController@index');
 
 Route::post('login', 'Login\LoginController@dologin');
 
