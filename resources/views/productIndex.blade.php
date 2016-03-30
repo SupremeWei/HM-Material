@@ -1,7 +1,7 @@
 @extends('product')
 
 @section('itemInformation')
-    <div class="col-md-9" name="productContent">
+    <div class="col-md-9 productIntroduce" name="productContent">
         <div class="heading heading-v1 margin-bottom-20">
             <h2>請先選擇左側項目</h2>
 
