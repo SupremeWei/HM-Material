@@ -43,7 +43,7 @@ class LoginController extends BaseController {
         } else {
             Session::put('loginAdmin', false);
 
-            return Redirect::to('login');
+            return Redirect::to('hm-secret-login');
         }
 	}
 
@@ -53,6 +53,6 @@ class LoginController extends BaseController {
         Session::put('loginAdmin', false);
         flash()->success('登出成功', '即將返回登入頁面');
 
-        return Redirect::to('login');
+        return Redirect::to('hm-secret-login');
     }
 }
