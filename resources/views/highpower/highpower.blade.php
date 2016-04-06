@@ -46,7 +46,11 @@
                         <td>{{ $document->document_description }}</td>
                         <td>
                             <?php $document_name = $document->document_name; ?>
-                            <a href="<?php echo url("pdf/HPL/$document_name"); ?>" target="_blank"><i class="fa fa-file-pdf-o fa-2x" ></i></a>
+                            @if (! empty($document_name))
+                                <a href="<?php echo url("pdf/HPL/$document_name"); ?>" target="_blank"><i class="fa fa-file-pdf-o fa-2x" ></i></a>
+                            @else
+                                No Pdf
+                            @endif
                         </td>
                     </tr>
                 @endforeach
