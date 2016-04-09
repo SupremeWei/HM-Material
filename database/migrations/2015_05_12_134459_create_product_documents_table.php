@@ -18,6 +18,7 @@ class CreateProductDocumentsTable extends Migration {
 			$table->string('item_code');
 			$table->integer('document_seq');
 			$table->string('document_name');
+			$table->string('document_description');
 		});
 	}
 

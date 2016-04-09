@@ -19,6 +19,8 @@ class CreateProductTypesTable extends Migration {
 			$table->string('type_name');
 			$table->char('type_status', 1);
 			$table->string('type_content');
+			$table->integer('category_id');
+			$table->string('form_type', 40);
 		});
 	}
 
