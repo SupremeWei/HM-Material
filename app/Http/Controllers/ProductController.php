@@ -97,13 +97,19 @@ class ProductController extends BaseController {
      */
     public function showHighpower($type_code)
     {
-        $getItem = Items::GetItems($type_code)->first();
+        $item = Items::GetItems($type_code)->first();
 
-        $getDocuments = Document::OfItem_code($getItem->item_code)->get();
+        $ledGroupTitle = Items::find($item->id)->GroupsTitle()->get();
 
-        $getImages = Images::GetImages($getItem->item_code)->get();
+        $ledGroupItems = Items::with('GroupLinkItems')->find($item->id);
 
-        return view('highpower.highpower', compact(['getDocuments', 'getImages']));
+        $ledImages = Images::GetImages($item->item_code)->get();
+
+        $ledDocuments = Document::OfItem_code($item->item_code)->get();
+
+        $loginAdmin = Session::get('loginAdmin');
+
+        return view('highpower.highpower', compact(['ledGroupTitle', 'ledGroupItems', 'ledImages', 'ledDocuments', 'loginAdmin', 'type_code']));
     }
 
     /**
