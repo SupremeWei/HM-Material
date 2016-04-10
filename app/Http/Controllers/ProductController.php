@@ -147,9 +147,15 @@ class ProductController extends BaseController {
     {
         $item = Items::GetItems($type_code)->first();
 
-        $groupItems = Items::with('GroupLinkDcUseItems')->find($item->id);
+        $groupDcUseItems = Items::with('GroupLinkDcUseItems')->find($item->id);
 
-        return view('dcUseFilm.dcUse', compact(['groupItems']));
+        $pdfGroupItems = Items::with('GroupLinkItems')->find($item->id);
+
+        $ledDocuments = Document::OfItem_code($item->item_code)->get();
+
+        $loginAdmin = Session::get('loginAdmin');
+
+        return view('dcUseFilm.dcUse', compact(['groupDcUseItems', 'pdfGroupItems', 'ledDocuments', 'loginAdmin', 'type_code']));
     }
 
     /**
