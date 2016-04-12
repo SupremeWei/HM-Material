@@ -22,7 +22,7 @@ class mailController extends BaseController {
 
         // 收件者資料
         $userinfo = array(
-            'email'=>'my7love7@gmail.com',
+            'email' => 'cmyew.hm@msa.hinet.net',
             'subject'=>$subject
         );
 
