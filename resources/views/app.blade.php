@@ -2,7 +2,7 @@
 <html lang="tw">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>翰鎂科技股份有限公司</title>
+    <title>翰鎂科技有限公司</title>
     <meta name="keywords" content="" />
     <meta name="description" content="" />
     <meta name="csrf-token" content="{{ csrf_token() }}" />
@@ -125,7 +125,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
-                            <p><i class="fa fa-copyright"></i>2015 翰鎂科技股份有限公司擁有</p>
+                            <p><i class="fa fa-copyright"></i>2016 翰鎂科技有限公司擁有</p>
                         </div>
                     </div>
                 </div>
